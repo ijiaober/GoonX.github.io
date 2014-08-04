@@ -171,6 +171,10 @@ article .post-content {
     padding-left: 20px;
   }
 }
+article .bg-warning {
+  background-color: #fcf8e3;
+  padding: 20px;
+}
 article .gallery {
   overflow: hidden;
   position: relative;
@@ -476,9 +480,6 @@ article footer .addthis {
 }
 article footer .addthis iframe {
   margin-top: 0;
-}
-article footer .bg-warning {
-  background-color: #fcf8e3;
 }
 #comment {
   padding: 20px;

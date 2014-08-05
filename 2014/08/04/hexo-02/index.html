@@ -6,8 +6,7 @@
   <title>Hexo使用攻略：（二）Hexo安装和部署 | { GoonX }</title>
   <meta name="author" content="ijiaober">
   
-  <meta name="description" content="欢迎阅读Hexo使用攻略系列文档，本文档将尽量用简短的文字带领大家快速的上手Hexo。在使用Hexo过程中，如果遇到任何问题，可以查阅官方的Troubleshooting或者直接去GitHub提问。
-注意：本系列文章针对的Hexo版本为：2.8.1。其他版本请自行调试。">
+  <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -39,8 +38,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/about">About</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -117,12 +114,12 @@
 </blockquote>
 <p>现在我们打开浏览器，输入<code>localhost:4000</code>访问，就能够看到你的页面了。</p>
 <h2 id="部署到GitHub">部署到GitHub</h2>
-<p>关于<a href="https://github.com" target="_blank" rel="external">GitHub</a>的注册，很简单，这里就不做介绍了。<br>登录你的GitHub账户，在主页的右下角点击<code>New Repository</code>,然后填写你想要的名字比如<code>GoonX.github.io</code></p>
+<p>关于<a href="https://github.com" target="_blank" rel="external">GitHub</a>的注册，很简单，这里就不做介绍了。<br>登录你的GitHub账户，在主页的右下角点击<code>New Repository</code>,然后填写你的github帐号为前缀的地址比如<code>ijiaober.github.io</code></p>
 <p>编辑你的Hexo目录下的<code>_config.yml</code>文件（替换成你自己的信息）：</p>
 <blockquote>
-<p>deploy:<br>  type: github<br>  repository: <a href="https://github.com/GoonX/GoonX.github.io.git" target="_blank" rel="external">https://github.com/GoonX/GoonX.github.io.git</a><br>  branch: master</p>
+<p>deploy:<br>  type: github<br>  repository: <a href="https://github.com/ijiaober/ijiaober.github.io.git" target="_blank" rel="external">https://github.com/ijiaober/ijiaober.github.io.git</a><br>  branch: master</p>
 </blockquote>
-<p>保存后执行下面命令重新生成文件完成部署：</p>
+<p>保存后依次执行下面命令重新生成文件完成部署：</p>
 <blockquote>
 <p>$ hexo g<br>$ hexo d</p>
 </blockquote>
@@ -141,7 +138,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Hexo/">Hexo</a>
+    <a href="/tags/hexo/">hexo</a>
   </div>
 
         
@@ -161,6 +158,28 @@
     <a class="addthis_counter addthis_pill_style"></a>
   </div>
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+        
+<nav class="article-nav clearfix">
+ 
+ <div class="article-prev" >
+ <a href="/2014/08/04/hexo-03/" title="Hexo使用攻略：（三）Hexo的配置和使用">
+  <i class="fa fa-long-arrow-left"></i>
+  <span>
+  Hexo使用攻略：（三）Hexo的配置和使用</span>
+</a>
+</div>
+
+
+<div class="article-next">
+<a href="/2014/08/02/hexo-index/"  title="Hexo使用攻略：（一）Hexo简介">
+ <span>Hexo使用攻略：（一）Hexo简介
+</span>
+<i class="fa fa-long-arrow-right"></i>
+</a>
+</div>
+
+</nav>
 
       
       <div class="clearfix"></div>
@@ -193,10 +212,10 @@
     <aside id="sidebar" class="alignright">
   
 <div class="widget tag">
-  <h3 class="title">分类</h3>
+  <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/hexo/">Hexo</a><small>2</small></li>
+    <li><a href="/categories/hexo/">Hexo</a><small>6</small></li>
   
   </ul>
 </div>
@@ -204,9 +223,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Hexo/" style="font-size: NaNpx;">Hexo</a>
+    <a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/分类/" style="font-size: 10.00px;">分类</a><a href="/tags/导航/" style="font-size: 10.00px;">导航</a><a href="/tags/标签/" style="font-size: 10.00px;">标签</a><a href="/tags/菜单/" style="font-size: 10.00px;">菜单</a>
   </div>
 </div>
 

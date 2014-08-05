@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo使用攻略：（一）Hexo简介 | { GoonX }</title>
+  <title>Hexo使用攻略：（六）Hexo主题安装 | { GoonX }</title>
   <meta name="author" content="ijiaober">
   
   <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo使用攻略：（一）Hexo简介"/>
+  <meta property="og:title" content="Hexo使用攻略：（六）Hexo主题安装"/>
   <meta property="og:site_name" content="GoonX"/>
 
   
@@ -50,27 +50,38 @@
     <header>
       
   
-    <h1 class="title">Hexo使用攻略：（一）Hexo简介</h1>
+    <h1 class="title">Hexo使用攻略：（六）Hexo主题安装</h1>
   
 
       
         <div class="icon"></div>
-        <time datetime="2014-08-02T07:32:11.000Z"><a href="/2014/08/02/hexo-index/">8月 2日 2014</a></time>
+        <time datetime="2014-08-05T07:45:39.000Z"><a href="/2014/08/05/hexo-06/">8月 5日 2014</a></time>
       
     </header>
     <div class="entry">
       
-        <p>你可能需要一个方便的工具来记录思想、整理笔记、表述观点，并且传播给更多的人。Hexo就是一个不错的工具。<br>Hexo,是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。<br>引用官方的话，hexo：</p>
+        <p>嘿，我们搭建好了Hexo,设置好了导航菜单和分类，写了一些文章并且同步到GitHub上了，可我们不满足，我们想要页面看起来更好看一些。</p>
+<p>我们可以通过安装主题的方式来快速选择喜欢的样式！</p>
+<ol>
+<li><p>打开Hexo的<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">Themes</a>;</p>
+</li>
+<li><p>找到你心仪的主题并且点击主题名称进入详细页面；</p>
+</li>
+<li><p>找到<code>install</code>这一项，复制下面的内容，比如Light主题的安装内容为：</p>
 <blockquote>
-<p>快速、简单且功能强大的 Node.js 博客框架。<br>A fast, simple &amp; powerful blog framework, powered by Node.js.  </p>
+<p>git clone <a href="https://github.com/hexojs/hexo-theme-light.git" target="_blank" rel="external">https://github.com/hexojs/hexo-theme-light.git</a> themes/light</p>
 </blockquote>
-<p>我们可以用hexo创建自己的博客，托管到github或Heroku上，绑定自己的域名，用markdown写文章。本博客即使用hexo创建并托管在github上。<br><a id="more"></a></p>
-<h1 id="为什么要用Hexo">为什么要用Hexo</h1>
+</li>
+<li><p>在Hexo目录下运行上面复制的内容，就会自动下载该主题到你的Themes目录。</p>
+</li>
+<li><p>下载完毕后，在站点配置文件<code>_config.yml</code>里设置对应的主题名称：</p>
 <blockquote>
-<p>不可思议的快速 ─ 只要一眨眼静态文件即生成完成<br>支持 Markdown<br>仅需一道指令即可部署到 GitHub Pages 和 Heroku<br>已移植 Octopress 插件<br>高扩展性、自订性<br>兼容于 Windows, Mac &amp; Linux</p>
+<p>theme: light</p>
 </blockquote>
-<h1 id="谁能使用Hexo">谁能使用Hexo</h1>
-<p>这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于wordpress，hexo由于需要使用Github,Git,Markdown,Node.js这样的工具，好多插件、widget都需要自己安装、设置。所以适合那些有一定计算机基础，喜欢折腾的人。但是，不要担心，只要跟着本教程走，就能很方便地让你熟练的使用起来。</p>
+</li>
+<li>根据自己的需要，配置主题的配置文件<code>_config.yml</code>;</li>
+</ol>
+<p>OK，我们成功的安装了一个主题。</p>
 
       
     </div>
@@ -85,7 +96,7 @@
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/hexo/">hexo</a>, <a href="/tags/主题/">主题</a>
   </div>
 
         
@@ -109,14 +120,14 @@
         
 <nav class="article-nav clearfix">
  
- <div class="article-prev" >
- <a href="/2014/08/04/hexo-02/" title="Hexo使用攻略：（二）Hexo安装和部署">
-  <i class="fa fa-long-arrow-left"></i>
-  <span>
-  Hexo使用攻略：（二）Hexo安装和部署</span>
+
+<div class="article-next">
+<a href="/2014/08/05/hexo-05/"  title="Hexo使用攻略：（五）Hexo导航菜单设置">
+ <span>Hexo使用攻略：（五）Hexo导航菜单设置
+</span>
+<i class="fa fa-long-arrow-right"></i>
 </a>
 </div>
-
 
 </nav>
 
@@ -142,7 +153,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://ijiaober.github.io/2014/08/02/hexo-index/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://ijiaober.github.io/2014/08/05/hexo-06/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>

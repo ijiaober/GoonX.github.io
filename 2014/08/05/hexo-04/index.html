@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo使用攻略：（四）Hexo的分类和标签设置 | { GoonX }</title>
+  <meta name="author" content="ijiaober">
+  
+  <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Hexo使用攻略：（四）Hexo的分类和标签设置"/>
+  <meta property="og:site_name" content="GoonX"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="GoonX" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">{ GoonX }</a></h1>
+  <h2><a href="/">我走的很慢，但我从不后退。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+  
+    <h1 class="title">Hexo使用攻略：（四）Hexo的分类和标签设置</h1>
+  
+
+      
+        <div class="icon"></div>
+        <time datetime="2014-08-05T03:43:19.000Z"><a href="/2014/08/05/hexo-04/">8月 5日 2014</a></time>
+      
+    </header>
+    <div class="entry">
+      
+        <p>到这里，我们已经了解了如何配置一个Hexo博客，并且通过</p>
+<blockquote>
+<p>$ hexo n ‘name’<br>$ hexo g<br>$ hexo s<br>$ hexo d</p>
+</blockquote>
+<p>几个常见命令来新建、更新、预览、同步你的博客。</p>
+<p>这一节，我们来分享一下Hexo里关于分类和标签的设置技巧。</p>
+<p><a id="more"></a></p>
+<h2 id="新建一个页面">新建一个页面</h2>
+<p>首先，我们通过<code>hexo n &quot;name&quot;</code>命令来新建一个页面，在source/_posts目录下找到刚才新建的<code>name.md</code>文件，用记事本或者sublime text打开。</p>
+<p>我们看到默认的页面是这样的：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: name</div><div class="line">date: 2014-08-05 11:15:00 </div><div class="line"><span class="header">tags: </span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+<p>可以编辑标题、日期、标签和内容，但是没有分类的选项。我们可以手动加入<code>categories:</code>项，或者打开<code>scaffolds/post.md</code>文件，在<code>tages:</code>上面加入<code>categories:</code>,保存后，重新执行<code>hexo n &#39;name&#39;</code>命令，会发现新建的页面里有<code>categories:</code>项了。</p>
+<p>scaffolds目录下，是新建页面的模板，执行新建命令时，是根据这里的模板页来完成的，所以可以在这里根据你自己的需求添加一些默认值。</p>
+<h2 id="设置分类列表">设置分类列表</h2>
+<p>在我们编辑文章的时候，直接在<code>categories:</code>项填写属于哪个分类，但如果分类是中文的时候，路径也会包含中文。<br>比如分类我们设置的是：</p>
+<blockquote>
+<p>categories: 编程</p>
+</blockquote>
+<p>那在生成页面后，分类列表就会出现<code>编程</code>这个选项，他的访问路径是：</p>
+<blockquote>
+<p>*/categories/编程</p>
+</blockquote>
+<p>如果我们想要把路径名和分类名分别设置，需要怎么办呢？</p>
+<p>打开根目录下的配置文件<code>_config.yml</code>，找到如下位置做更改：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Category & Tag</span></div><div class="line">default_category: uncategorized</div><div class="line"><span class="title">category_map:</span></div><div class="line">	编程: programming</div><div class="line">	生活: life</div><div class="line">	其他: other</div><div class="line"><span class="title">tag_map:</span></div></pre></td></tr></table></figure>
+
+<p>在这里<code>category_map:</code>是设置分类的地方，每行一个分类，冒号前面是分类名称，后面是访问路径。</p>
+<p>可以提前在这里设置好一些分类，当编辑的文章填写了对应的分类名时，就会自动的按照对应的路径来访问。</p>
+<h2 id="设置标签">设置标签</h2>
+<p>在编辑文章的时候，<code>tags:</code>后面是设置标签的地方，如果有多个标签的话，可以用下面两种办法来设置：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tages: [标签<span class="number">1</span>,标签<span class="number">2</span>,<span class="keyword">...</span>标签n]</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> tages: </div><div class="line">- 标签<span class="number">1</span></div><div class="line">- 标签<span class="number">2</span></div><div class="line"><span class="keyword">...</span></div><div class="line">- 标签n</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/hexo/">Hexo</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/hexo/">hexo</a>, <a href="/tags/分类/">分类</a>, <a href="/tags/标签/">标签</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+        
+<nav class="article-nav clearfix">
+ 
+ <div class="article-prev" >
+ <a href="/2014/08/05/hexo-05/" title="Hexo使用攻略：（五）Hexo导航菜单设置">
+  <i class="fa fa-long-arrow-left"></i>
+  <span>
+  Hexo使用攻略：（五）Hexo导航菜单设置</span>
+</a>
+</div>
+
+
+<div class="article-next">
+<a href="/2014/08/04/hexo-03/"  title="Hexo使用攻略：（三）Hexo的配置和使用">
+ <span>Hexo使用攻略：（三）Hexo的配置和使用
+</span>
+<i class="fa fa-long-arrow-right"></i>
+</a>
+</div>
+
+</nav>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://ijiaober.github.io/2014/08/05/hexo-04/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hexo/">Hexo</a><small>6</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/分类/" style="font-size: 10.00px;">分类</a><a href="/tags/导航/" style="font-size: 10.00px;">导航</a><a href="/tags/标签/" style="font-size: 10.00px;">标签</a><a href="/tags/菜单/" style="font-size: 10.00px;">菜单</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 ijiaober
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

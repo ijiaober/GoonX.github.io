@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo使用攻略：（一）Hexo简介 | { GoonX }</title>
+  <title>Hexo使用攻略：（五）Hexo导航菜单设置 | { GoonX }</title>
   <meta name="author" content="ijiaober">
   
   <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo使用攻略：（一）Hexo简介"/>
+  <meta property="og:title" content="Hexo使用攻略：（五）Hexo导航菜单设置"/>
   <meta property="og:site_name" content="GoonX"/>
 
   
@@ -50,27 +50,28 @@
     <header>
       
   
-    <h1 class="title">Hexo使用攻略：（一）Hexo简介</h1>
+    <h1 class="title">Hexo使用攻略：（五）Hexo导航菜单设置</h1>
   
 
       
         <div class="icon"></div>
-        <time datetime="2014-08-02T07:32:11.000Z"><a href="/2014/08/02/hexo-index/">8月 2日 2014</a></time>
+        <time datetime="2014-08-05T07:25:33.000Z"><a href="/2014/08/05/hexo-05/">8月 5日 2014</a></time>
       
     </header>
     <div class="entry">
       
-        <p>你可能需要一个方便的工具来记录思想、整理笔记、表述观点，并且传播给更多的人。Hexo就是一个不错的工具。<br>Hexo,是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。<br>引用官方的话，hexo：</p>
+        <p>在Hexo里，默认的导航菜单只有<code>Home</code>和<code>Archives</code>两项，那么我们怎么来增加其他的导航菜单进去呢？</p>
+<p>首先打开主题的配置文件<code>_config.yml</code>：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">menu</span>:</div><div class="line">  Home: /</div><div class="line">  Archives: /archives</div><div class="line">  About: /<span class="keyword">about</span></div></pre></td></tr></table></figure>
+
+<p>我们看到的<code>menu:</code>部分是设置菜单的，我们在下面加了一项设置<code>About: /about</code></p>
+<p>象上一节设置分类一样，前面部分是名称，后面部分是访问路径，当然名称神马的你可以用中文,访问路径你也可以直接设置到其他站点的任何页面。</p>
+<p>我们这个示例里，设置About的访问路径为：/about。</p>
+<p>下面我们来建立这个about，运行命令：</p>
 <blockquote>
-<p>快速、简单且功能强大的 Node.js 博客框架。<br>A fast, simple &amp; powerful blog framework, powered by Node.js.  </p>
+<p>hexo n page ‘about’</p>
 </blockquote>
-<p>我们可以用hexo创建自己的博客，托管到github或Heroku上，绑定自己的域名，用markdown写文章。本博客即使用hexo创建并托管在github上。<br><a id="more"></a></p>
-<h1 id="为什么要用Hexo">为什么要用Hexo</h1>
-<blockquote>
-<p>不可思议的快速 ─ 只要一眨眼静态文件即生成完成<br>支持 Markdown<br>仅需一道指令即可部署到 GitHub Pages 和 Heroku<br>已移植 Octopress 插件<br>高扩展性、自订性<br>兼容于 Windows, Mac &amp; Linux</p>
-</blockquote>
-<h1 id="谁能使用Hexo">谁能使用Hexo</h1>
-<p>这是一个免费开源的博客程序，任何人都可以使用和修改。但是不同于wordpress，hexo由于需要使用Github,Git,Markdown,Node.js这样的工具，好多插件、widget都需要自己安装、设置。所以适合那些有一定计算机基础，喜欢折腾的人。但是，不要担心，只要跟着本教程走，就能很方便地让你熟练的使用起来。</p>
+<p>会在source目录里生成一个对应的about目录，该目录下的index.md，就是你访问About时的页面。</p>
 
       
     </div>
@@ -85,7 +86,7 @@
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/hexo/">hexo</a>, <a href="/tags/导航/">导航</a>, <a href="/tags/菜单/">菜单</a>
   </div>
 
         
@@ -110,13 +111,21 @@
 <nav class="article-nav clearfix">
  
  <div class="article-prev" >
- <a href="/2014/08/04/hexo-02/" title="Hexo使用攻略：（二）Hexo安装和部署">
+ <a href="/2014/08/05/hexo-06/" title="Hexo使用攻略：（六）Hexo主题安装">
   <i class="fa fa-long-arrow-left"></i>
   <span>
-  Hexo使用攻略：（二）Hexo安装和部署</span>
+  Hexo使用攻略：（六）Hexo主题安装</span>
 </a>
 </div>
 
+
+<div class="article-next">
+<a href="/2014/08/05/hexo-04/"  title="Hexo使用攻略：（四）Hexo的分类和标签设置">
+ <span>Hexo使用攻略：（四）Hexo的分类和标签设置
+</span>
+<i class="fa fa-long-arrow-right"></i>
+</a>
+</div>
 
 </nav>
 
@@ -142,7 +151,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://ijiaober.github.io/2014/08/02/hexo-index/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://ijiaober.github.io/2014/08/05/hexo-05/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>

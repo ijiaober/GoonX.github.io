@@ -1,9 +1,9 @@
-@import url("//fonts.useso.com/css/css?family=Lato:400,400italic");
+@import url("http://fonts.useso.com/css/css?family=Lato:400,400italic");
 @font-face {
   font-family: 'FontAwesome';
   font-style: normal;
   font-weight: normal;
-  src: url("font/fontawesome-webfont.eot?#iefix") format('embedded-opentype'), url("font/fontawesome-webfont.woff") format('woff'), url("font/fontawesome-webfont.ttf") format('truetype'), url("font/fontawesome-webfont.svg#FontAwesomeRegular") format('svg');
+  src: url("/css/font/fontawesome-webfont.eot?#iefix") format('embedded-opentype'), url("/css/font/fontawesome-webfont.woff") format('woff'), url("/css/font/fontawesome-webfont.ttf") format('truetype'), url("/css/font/fontawesome-webfont.svg#FontAwesomeRegular") format('svg');
 }
 * {
   margin: 0;
@@ -481,6 +481,17 @@ article footer .addthis {
 article footer .addthis iframe {
   margin-top: 0;
 }
+.article-nav {
+  width: 100%;
+}
+.article-nav .prev {
+  float: left;
+  padding-left: 10px;
+}
+.article-nav .next {
+  float: right;
+  padding-right: 10px;
+}
 #comment {
   padding: 20px;
   background: #fff;
@@ -590,6 +601,47 @@ article footer .addthis iframe {
 #sidebar .widget dl dl {
   list-style: disc;
   margin-left: 20px;
+}
+#sidebar .bs-docs-sidenav {
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 3px #ddd;
+  box-shadow: 1px 2px 3px #ddd;
+  margin-bottom: 30px;
+  word-wrap: break-word;
+}
+#sidebar .bs-docs-sidenav .title {
+  padding: 15px 20px;
+  font-size: 1em;
+  border-bottom: 1px solid #ddd;
+  font-weight: normal;
+}
+#sidebar .bs-docs-sidenav .entry {
+  font-size: 0.9em;
+  padding: 15px 20px;
+}
+#sidebar .bs-docs-sidenav ul,
+#sidebar .bs-docs-sidenav ol,
+#sidebar .bs-docs-sidenav dl {
+  list-style: none;
+}
+#sidebar .bs-docs-sidenav ul ul,
+#sidebar .bs-docs-sidenav ol ul,
+#sidebar .bs-docs-sidenav dl ul,
+#sidebar .bs-docs-sidenav ul ol,
+#sidebar .bs-docs-sidenav ol ol,
+#sidebar .bs-docs-sidenav dl ol,
+#sidebar .bs-docs-sidenav ul dl,
+#sidebar .bs-docs-sidenav ol dl,
+#sidebar .bs-docs-sidenav dl dl {
+  list-style: disc;
+  margin-left: 20px;
+}
+#sidebar .toc {
+  padding: 0 10px;
+}
+#sidebar .toc li {
+  list-style-type: none;
+  margin: 0.5em 0;
 }
 #sidebar .search {
   margin-bottom: 30px;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo使用攻略：（六）Hexo主题安装 | { GoonX }</title>
+  <title>Hexo使用攻略：（七）设置Hexo里的评论和分享 | { GoonX }</title>
   <meta name="author" content="ijiaober">
   
   <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo使用攻略：（六）Hexo主题安装"/>
+  <meta property="og:title" content="Hexo使用攻略：（七）设置Hexo里的评论和分享"/>
   <meta property="og:site_name" content="GoonX"/>
 
   
@@ -50,38 +50,37 @@
     <header>
       
   
-    <h1 class="title">Hexo使用攻略：（六）Hexo主题安装</h1>
+    <h1 class="title">Hexo使用攻略：（七）设置Hexo里的评论和分享</h1>
   
 
       
         <div class="icon"></div>
-        <time datetime="2014-08-05T07:45:39.000Z"><a href="/2014/08/05/hexo-06/">8月 5日 2014</a></time>
+        <time datetime="2014-08-06T04:30:40.000Z"><a href="/2014/08/06/hexo-07/">8月 6日 2014</a></time>
       
     </header>
     <div class="entry">
       
-        <p>嘿，我们搭建好了Hexo,设置好了导航菜单和分类，写了一些文章并且同步到GitHub上了，可我们不满足，我们想要页面看起来更好看一些。</p>
-<p>我们可以通过安装主题的方式来快速选择喜欢的样式！</p>
-<ol>
-<li><p>打开Hexo的<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">Themes</a>;</p>
-</li>
-<li><p>找到你心仪的主题并且点击主题名称进入详细页面；</p>
-</li>
-<li><p>找到<code>install</code>这一项，复制下面的内容，比如Light主题的安装内容为：</p>
-<blockquote>
-<p>git clone <a href="https://github.com/hexojs/hexo-theme-light.git" target="_blank" rel="external">https://github.com/hexojs/hexo-theme-light.git</a> themes/light</p>
-</blockquote>
-</li>
-<li><p>在Hexo目录下运行上面复制的内容，就会自动下载该主题到你的Themes目录。</p>
-</li>
-<li><p>下载完毕后，在站点配置文件<code>_config.yml</code>里设置对应的主题名称：</p>
-<blockquote>
-<p>theme: light</p>
-</blockquote>
-</li>
-<li>根据自己的需要，配置主题的配置文件<code>_config.yml</code>;</li>
-</ol>
-<p>OK，我们成功的安装了一个主题。</p>
+        <p>现在我们的Hexo安装了漂亮的主题，并且设置了导航菜单，也发布了几篇文章，是不是急不可耐的想和大家一起分享你的内容了？</p>
+<p>在和朋友们分享文章的时候，有两个必不可少的功能，评论 和 分享，这一节我们就来了解一下这两个设置。</p>
+<a id="more"></a>
+
+<h2 id="评论设置">评论设置</h2>
+<p>在Hexo中，默认使用的评论是国外的Disqus,不过因为国内的”网络环境”问题，我们改为国内的“多说”评论系统。</p>
+<h3 id="注册多说账户">注册多说账户</h3>
+<p>访问<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>网站，点击登录，根据自己的习惯选择一个登录方式。</p>
+<p>登录后根据提示填写一些基本信息，下一步就跳转到 工具 —- 获取代码 这页了。复制这里的<code>通用代码</code>备用。</p>
+<h3 id="修改comment文件">修改comment文件</h3>
+<p>打开<code>themes/主题名/layout/_partial/comment.ejs</code>这个文件    ，在下面位置粘贴刚才复制的代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="vbscript">&lt;% <span class="keyword">if</span> ( page.comments){ %&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span></div><div class="line">此处粘贴通用代码</div><div class="line"><span class="tag">&lt;/<span class="title">section</span>&gt;</span></div><div class="line"><span class="vbscript">&lt;% } %&gt;</span></div></pre></td></tr></table></figure>
+
+<p>记得粘贴完后，替换代码里的标题、网址、ID三项信息。</p>
+<p>标题可以用<code>&lt;%= item.title %&gt;</code>来替换，</p>
+<p>网址可以用<code>&lt;%- config.url %&gt;&lt;%- config.root%&gt;&lt;%- item.path %&gt;</code>来替换,</p>
+<p>ID可以用<code>&lt;%- item.path %&gt;</code>来替换。</p>
+<h2 id="分享设置">分享设置</h2>
+<p>访问<a href="http://share.baidu.com/code" target="_blank" rel="external">百度分享</a>,复制代码备用。</p>
+<p>找到<code>themes/light/layout/_partial/post/share.ejs</code>页面，用刚才复制的代码替换里面的内容，搞定。</p>
+<p>如果想要调换分享图标可参考百度分享的<a href="http://share.baidu.com/code/advance" target="_blank" rel="external">说明</a>来修改。</p>
 
       
     </div>
@@ -96,7 +95,7 @@
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>, <a href="/tags/主题/">主题</a>
+    <a href="/tags/hexo/">hexo</a>, <a href="/tags/评论/">评论</a>, <a href="/tags/分享/">分享</a>
   </div>
 
         <div class="bdsharebuttonbox">
@@ -118,18 +117,10 @@
         
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/08/06/hexo-07/" title="Hexo使用攻略：（七）设置Hexo里的评论和分享">
-  <strong><<</strong>
-  <span>
-  Hexo使用攻略：（七）设置Hexo里的评论和分享</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/08/05/hexo-05/"  title="Hexo使用攻略：（五）Hexo导航菜单设置">
- <span>Hexo使用攻略：（五）Hexo导航菜单设置
+<a href="/2014/08/05/hexo-06/"  title="Hexo使用攻略：（六）Hexo主题安装">
+ <span>Hexo使用攻略：（六）Hexo主题安装
 </span>
  <strong>>></strong> 
 </a>
@@ -142,13 +133,18 @@
 
 <section id="comment">
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="2014/08/05/hexo-06/" data-title="Hexo使用攻略：（六）Hexo主题安装" data-url="http://ijiaober.github.io/2014/08/05/hexo-06/"></div>
+  <div class="ds-thread" data-thread-key="2014/08/06/hexo-07/" data-title="Hexo使用攻略：（七）设置Hexo里的评论和分享" data-url="http://ijiaober.github.io/2014/08/06/hexo-07/"></div>
 <!-- 多说评论框 end -->
 </section>
 
 </div></div>
     <aside id="sidebar" class="alignright">
 
+
+<div class="bs-docs-sidenav">
+  <h3 class="title">本文目录</h3>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#评论设置"><span class="toc-number">1.</span> <span class="toc-text">评论设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册多说账户"><span class="toc-number">1.1.</span> <span class="toc-text">注册多说账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改comment文件"><span class="toc-number">1.2.</span> <span class="toc-text">修改comment文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分享设置"><span class="toc-number">2.</span> <span class="toc-text">分享设置</span></a></li></ol>
+</div>
 
 
 

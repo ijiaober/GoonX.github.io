@@ -4,7 +4,7 @@
   <subtitle><![CDATA[我走的很慢，但我从不后退。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://ijiaober.github.io/"/>
-  <updated>2014-08-07T06:04:26.114Z</updated>
+  <updated>2014-08-07T06:37:42.898Z</updated>
   <id>http://ijiaober.github.io/</id>
   
   <author>
@@ -13,6 +13,27 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo使用攻略：（九）为Hexo添加百度搜索]]></title>
+    <link href="http://ijiaober.github.io/2014/08/07/hexo-09/"/>
+    <id>http://ijiaober.github.io/2014/08/07/hexo-09/</id>
+    <published>2014-08-07T06:19:21.000Z</published>
+    <updated>2014-08-07T06:23:47.000Z</updated>
+    <content type="html"><![CDATA[<p>默认的Hexo用的是Google的搜索，因为某些不可抗拒的原因，访问起来不是很流畅，所以我们设置成百度搜索。</p>
+<p>打开<code>themes/light/layout/_widget/search.ejs</code>文件，里面内容替换为：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="variable">class=</span><span class="string">"search"</span>&gt;</div><div class="line">  &lt;form <span class="variable">action=</span><span class="string">"//baidu.com/baidu"</span> <span class="variable">method=</span><span class="string">"get"</span> <span class="variable">accept-charset=</span><span class="string">"utf-8"</span>&gt;</div><div class="line">    &lt;input <span class="variable">type=</span><span class="string">"search"</span> <span class="variable">name=</span><span class="string">"word"</span> <span class="variable">results=</span><span class="string">"0"</span> <span class="variable">placeholder=</span><span class="string">"&lt;%= __('search') %&gt;"</span>&gt;</div><div class="line">    &lt;input <span class="variable">type=</span><span class="string">"hidden"</span> <span class="variable">name=</span><span class="string">"si"</span> <span class="variable">value=</span><span class="string">"&lt;%- config.url.replace(/^https?:\/\//, '') %&gt;"</span>&gt;</div><div class="line">    &lt;input <span class="variable">name=</span>tn <span class="variable">type=</span>hidden <span class="variable">value=</span><span class="string">"bds"</span>&gt;</div><div class="line">	&lt;input <span class="variable">name=</span>cl <span class="variable">type=</span>hidden <span class="variable">value=</span><span class="string">"3"</span>&gt;</div><div class="line">	&lt;input <span class="variable">name=</span>ct <span class="variable">type=</span>hidden <span class="variable">value=</span><span class="string">"2097152"</span>&gt;</div><div class="line">	&lt;input <span class="variable">name=</span>s <span class="variable">type=</span>hidden <span class="variable">value=</span><span class="string">"on"</span>&gt;</div><div class="line">  &lt;/form&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+
+]]></content>
+    
+    
+      <category term="hexo" scheme="http://ijiaober.github.io/tags/hexo/"/>
+    
+      <category term="百度" scheme="http://ijiaober.github.io/tags/%E7%99%BE%E5%BA%A6/"/>
+    
+      <category term="Hexo" scheme="http://ijiaober.github.io/categories/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo使用攻略：（八）为Hexo添加RSS和Sitemap]]></title>

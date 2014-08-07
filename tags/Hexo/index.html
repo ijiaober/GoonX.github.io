@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="uWCKag0j7O" />
   
   <title>hexo | { GoonX }</title>
   <meta name="author" content="ijiaober">
@@ -39,6 +40,8 @@
     
       <li><a href="/archives">Archives</a></li>
     
+      <li><a href="/atom.xml">Rss</a></li>
+    
   </ul>
   <div class="clearfix"></div>
 </nav>
@@ -46,6 +49,59 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
 <h2 class="archive-title tag">hexo</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+  
+    <h1 class="title"><a href="/2014/08/07/hexo-08/">Hexo使用攻略：（八）为Hexo添加RSS和Sitemap</a></h1>
+  
+
+      
+        <div class="icon"></div>
+        <time datetime="2014-08-07T02:51:43.000Z"><a href="/2014/08/07/hexo-08/">8月 7日 2014</a></time>
+      
+    </header>
+    <div class="entry">
+      
+        <h2 id="添加RSS">添加RSS</h2>
+<ol>
+<li>用<code>npm</code>安装插件：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo-generator-feed</span></div></pre></td></tr></table></figure>
+
+<ol>
+<li>在配置文件里引用插件。在<code>hexo/_config.yml</code>添加代码：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugin<span class="variable">s:</span></div><div class="line">- hexo-generator-feed</div></pre></td></tr></table></figure>
+
+<ol>
+<li>在导航上添加RSS链接。打开<code>themes/light/_config.yml</code>文件，<code>rss:</code>部分修改为<code>rss: /atom.xml</code>,然后在<code>menu</code>部分添加<code>Rss: /atom.xml</code>。完成后代码类似下面的效果：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="label">menu:</span></div><div class="line">  Home: /</div><div class="line">  Archives: /archives</div><div class="line">  Rss: /atom.xml</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/08/07/hexo-08/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+        
+</article>
+
 
 
   
@@ -359,12 +415,23 @@
 </div></div>
     <aside id="sidebar" class="alignright">
 
+  <div class="search">
+  <form action="//baidu.com/baidu" method="get" accept-charset="utf-8">
+    <input type="search" name="word" results="0" placeholder="搜索">
+    <input type="hidden" name="si" value="ijiaober.github.io">
+    <input name=tn type=hidden value="bds">
+	<input name=cl type=hidden value="3">
+	<input name=ct type=hidden value="2097152">
+	<input name=s type=hidden value="on">
+  </form>
+</div>
+
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/hexo/">Hexo</a><small>7</small></li>
+    <li><a href="/categories/hexo/">Hexo</a><small>8</small></li>
   
   </ul>
 </div>
@@ -372,9 +439,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">标签云</h3>
+  <h3 class="title">标签</h3>
   <div class="entry">
-    <a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/分享/" style="font-size: 10.00px;">分享</a><a href="/tags/分类/" style="font-size: 10.00px;">分类</a><a href="/tags/导航/" style="font-size: 10.00px;">导航</a><a href="/tags/标签/" style="font-size: 10.00px;">标签</a><a href="/tags/菜单/" style="font-size: 10.00px;">菜单</a><a href="/tags/评论/" style="font-size: 10.00px;">评论</a>
+    <a href="/tags/RSS/" style="font-size: 10.00px;">RSS</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/分享/" style="font-size: 10.00px;">分享</a><a href="/tags/分类/" style="font-size: 10.00px;">分类</a><a href="/tags/导航/" style="font-size: 10.00px;">导航</a><a href="/tags/标签/" style="font-size: 10.00px;">标签</a><a href="/tags/菜单/" style="font-size: 10.00px;">菜单</a><a href="/tags/评论/" style="font-size: 10.00px;">评论</a>
   </div>
 </div>
 

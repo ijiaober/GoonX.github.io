@@ -4,7 +4,7 @@
   <subtitle><![CDATA[我走的很慢，但我从不后退。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://ijiaober.github.io/"/>
-  <updated>2014-08-07T07:07:57.016Z</updated>
+  <updated>2014-08-07T10:20:08.346Z</updated>
   <id>http://ijiaober.github.io/</id>
   
   <author>
@@ -13,6 +13,61 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[让程序员抓狂的排序算法教学视频]]></title>
+    <link href="http://ijiaober.github.io/2014/08/07/sorting-algorithm/"/>
+    <id>http://ijiaober.github.io/2014/08/07/sorting-algorithm/</id>
+    <published>2014-08-07T10:04:22.000Z</published>
+    <updated>2014-08-07T10:18:38.000Z</updated>
+    <content type="html"><![CDATA[<p>罗马尼亚是一个爱跳舞的民族，如果你看过罗马尼亚老电影《奇普里安.博隆贝斯库》，那欢快悠扬的舞曲之炽热呵，非把你融化不可！</p>
+<p>罗马尼亚人爱跳舞，不仅体现在电影和节日中，你会发现舞蹈无处不在，即使是大学里的计算机课程中的排序算法教学，也被用舞蹈的形式表现出来。</p>
+<p>罗马尼亚Tirgu Mures地区的Sapientia大学就制作了一系列用民族舞蹈形式表现的各种排序算法的工作原理。下面就是这些视频。</p>
+<p>舞跳的很好，但教学效果如何，我很难评判，至少让我对这几种排序算法的效率产生了严重的怀疑。 :)</p>
+<a id="more"></a>
+
+<h2 id="选择排序法">选择排序法</h2>
+<p>选择排序(Selection sort)是一种简单直观的排序算法。它的工作原理如下。首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<p>选择排序的主要优点与数据移动有关。如果某个元素位于正确的最终位置上，则它不会被移动。选择排序每次交换一对元素，它们当中至少有一个将被移到其最终位置上，因此对n个元素的表进行排序总共进行至多n-1次交换。在所有的完全依靠交换去移动元素的排序方法中，选择排序属于非常好的一种。</p>
+<embed src="http://static.video.qq.com/TPout.swf?vid=w013154oge5&amp;auto=0" allowfullscreen="true" quality="high" width="560" height="477" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+
+<h2 id="希尔排序法">希尔排序法</h2>
+<p>希尔排序，也称递减增量排序算法，是插入排序的一种更高效的改进版本。希尔排序是非稳定排序算法。</p>
+<p>希尔排序是基于插入排序的以下两点性质而提出改进方法的：</p>
+<p>1.插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到线性排序的效率<br>2.但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位</p>
+<embed src="http://static.video.qq.com/TPout.swf?vid=v01311791t3&amp;auto=0" allowfullscreen="true" quality="high" width="560" height="477" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+
+<h2 id="冒泡排序法">冒泡排序法</h2>
+<p>冒泡排序（Bubble Sort，台湾译为：泡沫排序或气泡排序）是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+<p>冒泡排序对n个项目需要O(n^2)的比较次数，且可以原地排序。尽管这个算法是最简单了解和实作的排序算法之一，但它对于少数元素之外的数列排序是很没有效率的。</p>
+<embed src="http://static.video.qq.com/TPout.swf?vid=n0131ldxpzw&amp;auto=0" allowfullscreen="true" quality="high" width="560" height="477" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+
+<h2 id="快速排序法">快速排序法</h2>
+<p>快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要Ο(n log n)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
+<embed src="http://static.video.qq.com/TPout.swf?vid=w01315ff3b6&amp;auto=0" allowfullscreen="true" quality="high" width="560" height="477" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+
+<h2 id="归并排序法">归并排序法</h2>
+<p>归并排序（Merge sort，台湾译作：合并排序）是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。</p>
+<embed src="http://static.video.qq.com/TPout.swf?vid=y0131d5dm1o&amp;auto=0" allowfullscreen="true" quality="high" width="560" height="477" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+
+<h2 id="插入排序法">插入排序法</h2>
+<p>插入排序（Insertion Sort）的算法描述是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。</p>
+<embed src="http://static.video.qq.com/TPout.swf?vid=v013112e790&amp;auto=0" allowfullscreen="true" quality="high" width="560" height="477" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+
+]]></content>
+    <summary type="html"><![CDATA[<p>罗马尼亚是一个爱跳舞的民族，如果你看过罗马尼亚老电影《奇普里安.博隆贝斯库》，那欢快悠扬的舞曲之炽热呵，非把你融化不可！</p>
+<p>罗马尼亚人爱跳舞，不仅体现在电影和节日中，你会发现舞蹈无处不在，即使是大学里的计算机课程中的排序算法教学，也被用舞蹈的形式表现出来。</p>
+<p>罗马尼亚Tirgu Mures地区的Sapientia大学就制作了一系列用民族舞蹈形式表现的各种排序算法的工作原理。下面就是这些视频。</p>
+<p>舞跳的很好，但教学效果如何，我很难评判，至少让我对这几种排序算法的效率产生了严重的怀疑。 :)</p>
+]]></summary>
+    
+      <category term="排序" scheme="http://ijiaober.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="算法" scheme="http://ijiaober.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="视界" scheme="http://ijiaober.github.io/categories/horizon/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo使用攻略：（九）为Hexo添加百度搜索]]></title>

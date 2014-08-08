@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ijiaober.github.io/2014/08/08/hexo-10/</loc>
+    <lastmod>2014-08-08T02:35:22.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://ijiaober.github.io/2014/08/07/sorting-algorithm/</loc>
     <lastmod>2014-08-07T10:18:38.000Z</lastmod>
   </url>

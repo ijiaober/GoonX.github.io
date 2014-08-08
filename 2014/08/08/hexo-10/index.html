@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo使用攻略：（五）Hexo导航菜单设置 | { GoonX }</title>
+  <title>Hexo使用攻略（九）百度统计、收藏图标、友情链接 | { GoonX }</title>
   <meta name="author" content="ijiaober">
   
   <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo使用攻略：（五）Hexo导航菜单设置"/>
+  <meta property="og:title" content="Hexo使用攻略（九）百度统计、收藏图标、友情链接"/>
   <meta property="og:site_name" content="GoonX"/>
 
   
@@ -52,28 +52,56 @@
     <header>
       
   
-    <h1 class="title">Hexo使用攻略：（五）Hexo导航菜单设置</h1>
+    <h1 class="title">Hexo使用攻略（九）百度统计、收藏图标、友情链接</h1>
   
 
       
         <div class="icon"></div>
-        <time datetime="2014-08-05T07:25:33.000Z"><a href="/2014/08/05/hexo-05/">8月 5日 2014</a></time>
+        <time datetime="2014-08-08T01:22:06.000Z"><a href="/2014/08/08/hexo-10/">8月 8日 2014</a></time>
       
     </header>
     <div class="entry">
       
-        <p>在Hexo里，默认的导航菜单只有<code>Home</code>和<code>Archives</code>两项，那么我们怎么来增加其他的导航菜单进去呢？</p>
-<p>首先打开主题的配置文件<code>_config.yml</code>：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">menu</span>:</div><div class="line">  Home: /</div><div class="line">  Archives: /archives</div><div class="line">  About: /<span class="keyword">about</span></div></pre></td></tr></table></figure>
+        <h2 id="百度统计">百度统计</h2>
+<p>统计这部分，可以选择任何的统计服务商，比如<a href="http://tongji.baidu.com" target="_blank" rel="external">百度</a>、<a href="http://www.google.com/analytics/" target="_blank" rel="external">Google</a>或者其他你喜欢的。</p>
+<p>这里我们用百度统计来举例：</p>
+<ol>
+<li><p>注册并登录<a href="http://tongji.baidu.com" target="_blank" rel="external">百度统计</a>；</p>
+</li>
+<li><p>在代码获取里复制你的统计代码：</p>
+</li>
+</ol>
+<p><img src="/img/8C7D51F6-1437-42A4-B9A3-633C36F0161D.png" alt=""></p>
+<ol>
+<li>打开<code>themes/light/layout/_partial/after_footer.ejs</code>文件，把刚才复制的代码粘贴到最下面。当然你也可以粘贴到其他的文件里，只要保证这段代码能够出现在每一页的<code>body</code>标签里就行了。</li>
+</ol>
+<a id="more"></a>
 
-<p>我们看到的<code>menu:</code>部分是设置菜单的，我们在下面加了一项设置<code>About: /about</code></p>
-<p>象上一节设置分类一样，前面部分是名称，后面部分是访问路径，当然名称神马的你可以用中文,访问路径你也可以直接设置到其他站点的任何页面。</p>
-<p>我们这个示例里，设置About的访问路径为：/about。</p>
-<p>下面我们来建立这个about，运行命令：</p>
-<blockquote>
-<p>hexo n page ‘about’</p>
-</blockquote>
-<p>会在source目录里生成一个对应的about目录，该目录下的index.md，就是你访问About时的页面。</p>
+<h2 id="收藏图标">收藏图标</h2>
+<ol>
+<li><p>首先在<code>themes/light/layout/_partial/head.ejs</code>里将<code>&lt;link href=&quot;&lt;%- config.root %&gt;favicon.png&quot; rel=&quot;icon&quot;&gt;</code>替换为<code>&lt;link href=&quot;&lt;%- config.root %&gt;favicon.ico&quot; rel=&quot;icon&quot; type=&quot;image/x-ico&quot;&gt;</code>。</p>
+</li>
+<li><p>将制作好的favicon.ico图标文件放在source目录下。网上有很多在线生成ico图标的工具，大家可以自行搜索一下。</p>
+</li>
+</ol>
+<h2 id="友情链接">友情链接</h2>
+<ol>
+<li>在<code>themes/light/layout/_widget</code>中新建一个<code>.ejs</code>的文件，比如<code>links.ejs</code>。</li>
+<li>内容如下：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"widget tag"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">h3</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span><span class="vbscript">&lt;%= __(<span class="comment">'links') %&gt;</span></span><span class="tag">&lt;/<span class="title">h3</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span> #下面是每次增加和修改友情链接的地方</div><div class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://ijiaober.Github.io/"</span> <span class="attribute">title</span>=<span class="value">"ijiaober's Blog"</span>&gt;</span>GoonX<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<ol>
+<li>打开<code>themes/light/languages</code>下你选择的语言包文件，添加：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">links</span>: <span class="string">友情链接</span></div></pre></td></tr></table></figure>
+
+<ol>
+<li>在<code>themes/light/_config.yml</code>中的<code>widgets</code>部分，添加如下：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">widget<span class="variable">s:</span></div><div class="line">- links</div></pre></td></tr></table></figure>
+
+<p>添加其他的widgets也如法炮制。</p>
 
       
     </div>
@@ -88,7 +116,7 @@
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>, <a href="/tags/导航/">导航</a>, <a href="/tags/菜单/">菜单</a>
+    <a href="/tags/hexo/">hexo</a>, <a href="/tags/统计/">统计</a>, <a href="/tags/收藏图标/">收藏图标</a>, <a href="/tags/友情链接/">友情链接</a>
   </div>
 
         <div class="bdsharebuttonbox">
@@ -106,18 +134,10 @@
         
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/08/05/hexo-06/" title="Hexo使用攻略：（六）Hexo主题安装">
-  <strong><<</strong>
-  <span>
-  Hexo使用攻略：（六）Hexo主题安装</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/08/05/hexo-04/"  title="Hexo使用攻略：（四）Hexo的分类和标签设置">
- <span>Hexo使用攻略：（四）Hexo的分类和标签设置
+<a href="/2014/08/07/sorting-algorithm/"  title="让程序员抓狂的排序算法教学视频">
+ <span>让程序员抓狂的排序算法教学视频
 </span>
  <strong>>></strong> 
 </a>
@@ -135,13 +155,18 @@
 
 <section id="comment">
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="2014/08/05/hexo-05/" data-title="Hexo使用攻略：（五）Hexo导航菜单设置" data-url="http://ijiaober.github.io/2014/08/05/hexo-05/"></div>
+  <div class="ds-thread" data-thread-key="2014/08/08/hexo-10/" data-title="Hexo使用攻略（九）百度统计、收藏图标、友情链接" data-url="http://ijiaober.github.io/2014/08/08/hexo-10/"></div>
 <!-- 多说评论框 end -->
 </section>
 
 </div></div>
     <aside id="sidebar" class="alignright">
 
+
+<div class="bs-docs-sidenav">
+  <h3 class="title">本文目录</h3>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#百度统计"><span class="toc-number">1.</span> <span class="toc-text">百度统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#收藏图标"><span class="toc-number">2.</span> <span class="toc-text">收藏图标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#友情链接"><span class="toc-number">3.</span> <span class="toc-text">友情链接</span></a></li></ol>
+</div>
 
 
 

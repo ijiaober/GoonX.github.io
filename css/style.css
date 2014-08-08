@@ -139,6 +139,10 @@ article {
   box-shadow: 1px 2px 3px #ddd;
   background: #fff;
 }
+article:hover {
+  -webkit-box-shadow: 2px 3px 4px 2px #cac9c9;
+  box-shadow: 2px 3px 4px 2px #cac9c9;
+}
 article.page {
   padding-left: 20px;
 }

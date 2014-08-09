@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>像PPT一样浏览网站 | { GoonX }</title>
+  <meta name="author" content="ijiaober">
+  
+  <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="像PPT一样浏览网站"/>
+  <meta property="og:site_name" content="GoonX"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="GoonX" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">{ GoonX }</a></h1>
+  <h2><a href="/">我走的很慢，但我从不后退。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/atom.xml">Rss</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+  
+    <h1 class="title">像PPT一样浏览网站</h1>
+  
+
+      
+        <div class="icon"></div>
+        <time datetime="2014-08-09T02:37:03.000Z"><a href="/2014/08/09/One-Page-Scroll/">8月 9日 2014</a></time>
+      
+    </header>
+    <div class="entry">
+      
+        <p>有很多网站的首页采用视差滚动的效果设计成单页面，就像制作PPT一样，每一屏都是一个内容。既能用简短的文字和图形传达了内容，又用视觉感很强的动画设计强化了主题。</p>
+<p>今天我们来看一下单页面一屏切换内容的制作方式，效果有点像<a href="http://www.apple.com/iphone-5s/" target="_blank" rel="external">iphone5s</a>的产品页面。</p>
+<p>首先我们来了解一下视差滚动的概念，然后介绍一款JQuery的插件：</p>
+<a id="more"></a>
+
+<h2 id="什么是视差滚动">什么是视差滚动</h2>
+<p>视差滚动（Parallax Scrolling）是指让多层背景以不同的速度移动，形成立体的运动效果，带来非常出色的视觉体验。</p>
+<p>通过一个很长的网页页面，其中利用一些令人惊叹的插图和图形，并使用视差滚动（Parallax Scrolling）效果，让多层背景以不同的速度移动，形成立体的运动效果，带来非常出色的视觉体验。完美的展示了一个复杂的过程，让你犹如置身其中。</p>
+<p>固定背景不让它随着滚动轴移动，但包含背景的容器是跟着滚动的，所造成的视觉差异看起来就像跟转换场景一样。</p>
+<h2 id="视差滚动效果的特点">视差滚动效果的特点</h2>
+<ol>
+<li><p>直观的设计，快速的响应速度，更合适运用于单页面</p>
+</li>
+<li><p>差异滚动 分层视差</p>
+</li>
+</ol>
+<p>页面上很多的元素在相互独立地滚动着，如果我们来对其它分层的话，可以有两到三层 ：背景层，内容层，贴图层。</p>
+<p>以上内容摘录自：<a href="http://www.cnblogs.com/JoannaQ/archive/2013/02/08/2909111.html" target="_blank" rel="external">视差滚动(Parallax Scrolling)效果的原理和实现</a>感兴趣的童鞋可以进去看看详细内容。</p>
+<h2 id="One_Page_Scroll_1-3">One Page Scroll 1.3</h2>
+<p>One Page Scroll是一个JQuery插件，能让你的网站页面允许用户一屏一屏的滚动，它完美的将内容呈现在同一个页面。你只需要引用相应的JS和CSS文件，经过简单的设置，就可以做出很炫的切屏效果。</p>
+<p><a href="http://www.thepetedesign.com/demos/onepage_scroll_demo.html" target="_blank" rel="external">Demo</a></p>
+<blockquote>
+<p>注:One Page Scroll 1.3需要jQuery 1.9.0以上版本支持。</p>
+</blockquote>
+<h3 id="兼容性">兼容性</h3>
+<p>现代的浏览器，如火狐，Chrome，Safari在桌面电脑和智能手机已经过测试。没有测试IE浏览器。</p>
+<h3 id="基本用法">基本用法</h3>
+<ol>
+<li><p><a href="https://github.com/peachananr/onepage-scroll" target="_blank" rel="external">下载</a>最新的插件包.</p>
+</li>
+<li><p>将<code>onepage-scroll.css</code>、<code>jquery.onepage-scroll.js</code>引用到你文档的<code>&lt;head&gt;</code>内，当然你也需要引用一个1.9.0以上版本的jQery文件。</p>
+</li>
+<li><p>你的页面结构大概如下：</p>
+</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">  <span class="keyword">...</span></div><div class="line">  &lt;div class=<span class="string">"main"</span>&gt; <span class="comment">#main是我们要操作的容器，可以是id也可以是class，名字自取，这里以class为例。</span></div><div class="line">    &lt;section&gt;<span class="keyword">...</span>&lt;/section&gt; <span class="comment">#每屏内容的容器，可以不用section，自定义一个标签。</span></div><div class="line">    &lt;section&gt;<span class="keyword">...</span>&lt;/section&gt;</div><div class="line">    <span class="keyword">...</span></div><div class="line">  &lt;/div&gt;</div><div class="line">  <span class="keyword">...</span></div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+
+<ol>
+<li>设置好页面内容以后，我们在页面底部来配置容器里的动作：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".main"</span>).onepage_scroll({</div><div class="line">   sectionContainer: <span class="string">"section"</span>,     <span class="comment">// 每屏内容的容器标签，可自定义，要和上面代码对应上。</span></div><div class="line">   easing: <span class="string">"ease"</span>,                  <span class="comment">// CSS3动画效果 "ease", "linear", "ease-in", "ease-out", "ease-in-out", 或者设置值 "cubic-bezier(0.175, 0.885, 0.420, 1.310)"</span></div><div class="line">   animationTime: <span class="number">1000</span>,             <span class="comment">// 定义切换动画的时间</span></div><div class="line">   pagination: <span class="literal">true</span>,                <span class="comment">// 显示/隐藏分页按钮</span></div><div class="line">   updateURL: <span class="literal">false</span>,                <span class="comment">// URL地址切换。</span></div><div class="line">   beforeMove: <span class="function"><span class="keyword">function</span><span class="params">(index)</span> </span>{},  <span class="comment">// 在页面调用动画前的回调函数。</span></div><div class="line">   afterMove: <span class="function"><span class="keyword">function</span><span class="params">(index)</span> </span>{},   <span class="comment">// 完成动画之后的回调函数。</span></div><div class="line">   loop: <span class="literal">false</span>,                     <span class="comment">// 是否循环回到第一页或者最后一页。</span></div><div class="line">   keyboard: <span class="literal">true</span>,                  <span class="comment">// 是否开启键盘控制。</span></div><div class="line">   responsiveFallback: <span class="literal">false</span>,        <span class="comment">// 设置触发动画的屏幕最小宽度，例如设置成600，将屏幕小于600时将正常的页面滚动。</span></div><div class="line">   direction: <span class="string">"vertical"</span>            <span class="comment">// 运动方向 纵向"vertical" 和 横向"horizontal"。  </span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>现在你的页面已经可以按照切屏的效果来显示了。</p>
+<h3 id="快捷键">快捷键</h3>
+<p>你可以用快捷键来操作动画：</p>
+<p>上/下按键或者Page Up/Page Down键来切换到下一屏内容，当然如果是设置成横向移动的话，左右键也是可以切换的。</p>
+<p>Home键切换到第一屏，End键切换到最后一屏。</p>
+<h3 id="公共方法">公共方法</h3>
+<p>你可以通过编写程序，丰富你的页面动画：</p>
+<p><strong>$.fn.moveUp()</strong> 移动到上一屏：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">".main"</span>).moveUp();</div></pre></td></tr></table></figure>
+
+<p><strong>$.fn.moveDown()</strong> 移动到下一屏：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">".main"</span>).moveDown();</div></pre></td></tr></table></figure>
+
+<p><strong>$.fn.moveTo(page_index)</strong> 移动到指定屏：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">".main"</span>).moveTo(<span class="number">3</span>);</div></pre></td></tr></table></figure>
+
+<h3 id="回调函数">回调函数</h3>
+<p><strong>beforeMove(current_page_index)</strong> 切屏动作之前调用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".main"</span>).onepage_scroll({</div><div class="line">    beforeMove: <span class="keyword">function</span>(index) {</div><div class="line">      <span class="keyword">...</span></div><div class="line">    }</div><div class="line">  });</div></pre></td></tr></table></figure>
+
+<p><strong>afterMove(next_page_index)</strong> 切屏动作之后调用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".main"</span>).onepage_scroll({</div><div class="line">  afterMove: <span class="keyword">function</span>(index) {</div><div class="line">    <span class="keyword">...</span></div><div class="line">  }</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/wow/">Wow</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/单页面/">单页面</a>, <a href="/tags/ppt/">ppt</a>, <a href="/tags/one-page-scroll/">one page scroll</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+  <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+  <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+  <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+  <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+  <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+  <a href="#" class="bds_ibaidu" data-cmd="ibaidu" title="分享到百度个人中心"></a>
+  <a href="#" class="bds_more" data-cmd="more"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2014/08/08/hexo-10/"  title="Hexo使用攻略（十）百度统计、收藏图标、友情链接">
+ <span>Hexo使用攻略（十）百度统计、收藏图标、友情链接
+</span>
+ <strong>>></strong> 
+</a>
+</div>
+
+</nav>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+        
+</article>
+
+
+<section id="comment">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2014/08/09/One-Page-Scroll/" data-title="像PPT一样浏览网站" data-url="http://ijiaober.github.io/2014/08/09/One-Page-Scroll/"></div>
+<!-- 多说评论框 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+
+
+<div class="bs-docs-sidenav">
+  <h3 class="title">本文目录</h3>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是视差滚动"><span class="toc-number">1.</span> <span class="toc-text">什么是视差滚动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视差滚动效果的特点"><span class="toc-number">2.</span> <span class="toc-text">视差滚动效果的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#One_Page_Scroll_1-3"><span class="toc-number">3.</span> <span class="toc-text">One Page Scroll 1.3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#兼容性"><span class="toc-number">3.1.</span> <span class="toc-text">兼容性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法"><span class="toc-number">3.2.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键"><span class="toc-number">3.3.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公共方法"><span class="toc-number">3.4.</span> <span class="toc-text">公共方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回调函数"><span class="toc-number">3.5.</span> <span class="toc-text">回调函数</span></a></li></ol></li></ol>
+</div>
+
+
+
+  <div class="search">
+  <form action="//baidu.com/baidu" method="get" accept-charset="utf-8">
+    <input type="search" name="word" results="0" placeholder="搜索">
+    <input type="hidden" name="si" value="ijiaober.github.io">
+    <input name=tn type=hidden value="bds">
+	<input name=cl type=hidden value="3">
+	<input name=ct type=hidden value="2097152">
+	<input name=s type=hidden value="on">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hexo/">Hexo</a><small>10</small></li>
+  
+    <li><a href="/categories/wow/">Wow</a><small>1</small></li>
+  
+    <li><a href="/categories/horizon/">视界</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签</h3>
+  <div class="entry">
+    <a href="/tags/RSS/" style="font-size: 10.00px;">RSS</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/one-page-scroll/" style="font-size: 10.00px;">one page scroll</a><a href="/tags/ppt/" style="font-size: 10.00px;">ppt</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/分享/" style="font-size: 10.00px;">分享</a><a href="/tags/分类/" style="font-size: 10.00px;">分类</a><a href="/tags/单页面/" style="font-size: 10.00px;">单页面</a><a href="/tags/友情链接/" style="font-size: 10.00px;">友情链接</a><a href="/tags/导航/" style="font-size: 10.00px;">导航</a><a href="/tags/排序/" style="font-size: 10.00px;">排序</a><a href="/tags/收藏图标/" style="font-size: 10.00px;">收藏图标</a><a href="/tags/标签/" style="font-size: 10.00px;">标签</a><a href="/tags/百度/" style="font-size: 10.00px;">百度</a><a href="/tags/算法/" style="font-size: 10.00px;">算法</a><a href="/tags/统计/" style="font-size: 10.00px;">统计</a><a href="/tags/菜单/" style="font-size: 10.00px;">菜单</a><a href="/tags/评论/" style="font-size: 10.00px;">评论</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 ijiaober
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"phonein"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+<script src="/js/stickUp.min.js"></script>
+<script type="text/javascript">
+              //initiating jQuery
+              jQuery(function($) {
+                $(document).ready( function() {
+                  //enabling stickUp on the '.bs-docs-sidenav' class
+                  $('.bs-docs-sidenav').stickUp();
+                });
+              });
+
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F9420f91cad981c89586ddc3d24a5b4e3' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</body>
+</html>

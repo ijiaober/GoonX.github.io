@@ -4,7 +4,7 @@
   <subtitle><![CDATA[我走的很慢，但我从不后退。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://ijiaober.github.io/"/>
-  <updated>2014-08-08T03:37:46.918Z</updated>
+  <updated>2014-08-09T06:48:44.108Z</updated>
   <id>http://ijiaober.github.io/</id>
   
   <author>
@@ -15,11 +15,98 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[像PPT一样浏览网站]]></title>
+    <link href="http://ijiaober.github.io/2014/08/09/One-Page-Scroll/"/>
+    <id>http://ijiaober.github.io/2014/08/09/One-Page-Scroll/</id>
+    <published>2014-08-09T02:37:03.000Z</published>
+    <updated>2014-08-09T06:48:35.000Z</updated>
+    <content type="html"><![CDATA[<p>有很多网站的首页采用视差滚动的效果设计成单页面，就像制作PPT一样，每一屏都是一个内容。既能用简短的文字和图形传达了内容，又用视觉感很强的动画设计强化了主题。</p>
+<p>今天我们来看一下单页面一屏切换内容的制作方式，效果有点像<a href="http://www.apple.com/iphone-5s/" target="_blank" rel="external">iphone5s</a>的产品页面。</p>
+<p>首先我们来了解一下视差滚动的概念，然后介绍一款JQuery的插件：</p>
+<a id="more"></a>
+
+<h2 id="什么是视差滚动">什么是视差滚动</h2>
+<p>视差滚动（Parallax Scrolling）是指让多层背景以不同的速度移动，形成立体的运动效果，带来非常出色的视觉体验。</p>
+<p>通过一个很长的网页页面，其中利用一些令人惊叹的插图和图形，并使用视差滚动（Parallax Scrolling）效果，让多层背景以不同的速度移动，形成立体的运动效果，带来非常出色的视觉体验。完美的展示了一个复杂的过程，让你犹如置身其中。</p>
+<p>固定背景不让它随着滚动轴移动，但包含背景的容器是跟着滚动的，所造成的视觉差异看起来就像跟转换场景一样。</p>
+<h2 id="视差滚动效果的特点">视差滚动效果的特点</h2>
+<ol>
+<li><p>直观的设计，快速的响应速度，更合适运用于单页面</p>
+</li>
+<li><p>差异滚动 分层视差</p>
+</li>
+</ol>
+<p>页面上很多的元素在相互独立地滚动着，如果我们来对其它分层的话，可以有两到三层 ：背景层，内容层，贴图层。</p>
+<p>以上内容摘录自：<a href="http://www.cnblogs.com/JoannaQ/archive/2013/02/08/2909111.html" target="_blank" rel="external">视差滚动(Parallax Scrolling)效果的原理和实现</a>感兴趣的童鞋可以进去看看详细内容。</p>
+<h2 id="One_Page_Scroll_1-3">One Page Scroll 1.3</h2>
+<p>One Page Scroll是一个JQuery插件，能让你的网站页面允许用户一屏一屏的滚动，它完美的将内容呈现在同一个页面。你只需要引用相应的JS和CSS文件，经过简单的设置，就可以做出很炫的切屏效果。</p>
+<p><a href="http://www.thepetedesign.com/demos/onepage_scroll_demo.html" target="_blank" rel="external">Demo</a></p>
+<blockquote>
+<p>注:One Page Scroll 1.3需要jQuery 1.9.0以上版本支持。</p>
+</blockquote>
+<h3 id="兼容性">兼容性</h3>
+<p>现代的浏览器，如火狐，Chrome，Safari在桌面电脑和智能手机已经过测试。没有测试IE浏览器。</p>
+<h3 id="基本用法">基本用法</h3>
+<ol>
+<li><p><a href="https://github.com/peachananr/onepage-scroll" target="_blank" rel="external">下载</a>最新的插件包.</p>
+</li>
+<li><p>将<code>onepage-scroll.css</code>、<code>jquery.onepage-scroll.js</code>引用到你文档的<code>&lt;head&gt;</code>内，当然你也需要引用一个1.9.0以上版本的jQery文件。</p>
+</li>
+<li><p>你的页面结构大概如下：</p>
+</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">  <span class="keyword">...</span></div><div class="line">  &lt;div class=<span class="string">"main"</span>&gt; <span class="comment">#main是我们要操作的容器，可以是id也可以是class，名字自取，这里以class为例。</span></div><div class="line">    &lt;section&gt;<span class="keyword">...</span>&lt;/section&gt; <span class="comment">#每屏内容的容器，可以不用section，自定义一个标签。</span></div><div class="line">    &lt;section&gt;<span class="keyword">...</span>&lt;/section&gt;</div><div class="line">    <span class="keyword">...</span></div><div class="line">  &lt;/div&gt;</div><div class="line">  <span class="keyword">...</span></div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+
+<ol>
+<li>设置好页面内容以后，我们在页面底部来配置容器里的动作：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".main"</span>).onepage_scroll({</div><div class="line">   sectionContainer: <span class="string">"section"</span>,     <span class="comment">// 每屏内容的容器标签，可自定义，要和上面代码对应上。</span></div><div class="line">   easing: <span class="string">"ease"</span>,                  <span class="comment">// CSS3动画效果 "ease", "linear", "ease-in", "ease-out", "ease-in-out", 或者设置值 "cubic-bezier(0.175, 0.885, 0.420, 1.310)"</span></div><div class="line">   animationTime: <span class="number">1000</span>,             <span class="comment">// 定义切换动画的时间</span></div><div class="line">   pagination: <span class="literal">true</span>,                <span class="comment">// 显示/隐藏分页按钮</span></div><div class="line">   updateURL: <span class="literal">false</span>,                <span class="comment">// URL地址切换。</span></div><div class="line">   beforeMove: <span class="function"><span class="keyword">function</span><span class="params">(index)</span> </span>{},  <span class="comment">// 在页面调用动画前的回调函数。</span></div><div class="line">   afterMove: <span class="function"><span class="keyword">function</span><span class="params">(index)</span> </span>{},   <span class="comment">// 完成动画之后的回调函数。</span></div><div class="line">   loop: <span class="literal">false</span>,                     <span class="comment">// 是否循环回到第一页或者最后一页。</span></div><div class="line">   keyboard: <span class="literal">true</span>,                  <span class="comment">// 是否开启键盘控制。</span></div><div class="line">   responsiveFallback: <span class="literal">false</span>,        <span class="comment">// 设置触发动画的屏幕最小宽度，例如设置成600，将屏幕小于600时将正常的页面滚动。</span></div><div class="line">   direction: <span class="string">"vertical"</span>            <span class="comment">// 运动方向 纵向"vertical" 和 横向"horizontal"。  </span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>现在你的页面已经可以按照切屏的效果来显示了。</p>
+<h3 id="快捷键">快捷键</h3>
+<p>你可以用快捷键来操作动画：</p>
+<p>上/下按键或者Page Up/Page Down键来切换到下一屏内容，当然如果是设置成横向移动的话，左右键也是可以切换的。</p>
+<p>Home键切换到第一屏，End键切换到最后一屏。</p>
+<h3 id="公共方法">公共方法</h3>
+<p>你可以通过编写程序，丰富你的页面动画：</p>
+<p><strong>$.fn.moveUp()</strong> 移动到上一屏：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">".main"</span>).moveUp();</div></pre></td></tr></table></figure>
+
+<p><strong>$.fn.moveDown()</strong> 移动到下一屏：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">".main"</span>).moveDown();</div></pre></td></tr></table></figure>
+
+<p><strong>$.fn.moveTo(page_index)</strong> 移动到指定屏：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">".main"</span>).moveTo(<span class="number">3</span>);</div></pre></td></tr></table></figure>
+
+<h3 id="回调函数">回调函数</h3>
+<p><strong>beforeMove(current_page_index)</strong> 切屏动作之前调用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".main"</span>).onepage_scroll({</div><div class="line">    beforeMove: <span class="keyword">function</span>(index) {</div><div class="line">      <span class="keyword">...</span></div><div class="line">    }</div><div class="line">  });</div></pre></td></tr></table></figure>
+
+<p><strong>afterMove(next_page_index)</strong> 切屏动作之后调用</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".main"</span>).onepage_scroll({</div><div class="line">  afterMove: <span class="keyword">function</span>(index) {</div><div class="line">    <span class="keyword">...</span></div><div class="line">  }</div><div class="line">});</div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html"><![CDATA[<p>有很多网站的首页采用视差滚动的效果设计成单页面，就像制作PPT一样，每一屏都是一个内容。既能用简短的文字和图形传达了内容，又用视觉感很强的动画设计强化了主题。</p>
+<p>今天我们来看一下单页面一屏切换内容的制作方式，效果有点像<a href="http://www.apple.com/iphone-5s/" target="_blank" rel="external">iphone5s</a>的产品页面。</p>
+<p>首先我们来了解一下视差滚动的概念，然后介绍一款JQuery的插件：</p>
+]]></summary>
+    
+      <category term="单页面" scheme="http://ijiaober.github.io/tags/%E5%8D%95%E9%A1%B5%E9%9D%A2/"/>
+    
+      <category term="ppt" scheme="http://ijiaober.github.io/tags/ppt/"/>
+    
+      <category term="one page scroll" scheme="http://ijiaober.github.io/tags/one-page-scroll/"/>
+    
+      <category term="Wow" scheme="http://ijiaober.github.io/categories/wow/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Hexo使用攻略（十）百度统计、收藏图标、友情链接]]></title>
     <link href="http://ijiaober.github.io/2014/08/08/hexo-10/"/>
     <id>http://ijiaober.github.io/2014/08/08/hexo-10/</id>
     <published>2014-08-08T01:22:06.000Z</published>
-    <updated>2014-08-08T03:37:24.000Z</updated>
+    <updated>2014-08-08T09:47:00.000Z</updated>
     <content type="html"><![CDATA[<h2 id="百度统计">百度统计</h2>
 <p>统计这部分，可以选择任何的统计服务商，比如<a href="http://tongji.baidu.com" target="_blank" rel="external">百度</a>、<a href="http://www.google.com/analytics/" target="_blank" rel="external">Google</a>或者其他你喜欢的。</p>
 <p>这里我们用百度统计来举例：</p>

@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ijiaober.github.io/2014/08/09/Architecture-of-Laravel/</loc>
+    <lastmod>2014-08-11T07:58:19.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://ijiaober.github.io/2014/08/09/One-Page-Scroll/</loc>
     <lastmod>2014-08-09T13:47:51.000Z</lastmod>
   </url>

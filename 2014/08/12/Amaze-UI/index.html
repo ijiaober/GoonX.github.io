@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo使用攻略：（二）Hexo安装和部署 | { GoonX }</title>
+  <title>中国首个开源HTML5跨屏前端框架-Amaze UI | { GoonX }</title>
   <meta name="author" content="ijiaober">
   
   <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo使用攻略：（二）Hexo安装和部署"/>
+  <meta property="og:title" content="中国首个开源HTML5跨屏前端框架-Amaze UI"/>
   <meta property="og:site_name" content="GoonX"/>
 
   
@@ -52,80 +52,43 @@
     <header>
       
   
-    <h1 class="title">Hexo使用攻略：（二）Hexo安装和部署</h1>
+    <h1 class="title">中国首个开源HTML5跨屏前端框架-Amaze UI</h1>
   
 
       
         <div class="icon"></div>
-        <time datetime="2014-08-04T03:14:48.000Z"><a href="/2014/08/04/hexo-02/">8月 4日 2014</a></time>
+        <time datetime="2014-08-12T01:56:26.000Z"><a href="/2014/08/12/Amaze-UI/">8月 12日 2014</a></time>
       
     </header>
     <div class="entry">
       
-        <p>欢迎阅读<strong>Hexo使用攻略</strong>系列文档，本文档将尽量用简短的文字带领大家快速的上手Hexo。<br>在使用Hexo过程中，如果遇到任何问题，可以查阅官方的<a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Troubleshooting</a>或者直接去<a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>提问。</p>
-<p></p><p class="bg-warning">注意：本系列文章针对的Hexo版本为：2.8.1。其他版本请自行调试。</p><br><a id="more"></a><p></p>
-<h2 id="安装">安装</h2>
-<p>安装Hexo非常简单，但是在安装之前，你需要具备以下条件：</p>
+        <p>国内有不少前端框架，但能解决浏览器存在的跨屏适配和兼容性问题的技术却很少。再加上国内对开源技术的思想意识不够，很多成熟的技术主要封闭在自己的公司内，这样造成整个产业链在技术上很难互惠互通。</p>
+<p>与此同时，移动、跨屏已经成为了的当下互联网最热门的技术，而前端开发者在开发网页时，时常会陷入重复解决繁复的跨屏、适配问题，耗费精力，影响工作效率，产品开发进度慢这样的恶性循环中。</p>
+<p><a href="http://amazeui.org/" target="_blank" rel="external">Amaze UI</a>应该是中国首个HTML5跨屏前端开发框架，其不仅兼容Bootstrap、Foundation、Semantic UI几者的优势，还具有以下优势：</p>
 <ul>
-<li><a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
-<li><a href="http://git-scm.com/" target="_blank" rel="external">Git</a></li>
+<li><p>加入更多符合中国市场特性的元素：中文排版更优化，兼容中国本土主流浏览器</p>
+</li>
+<li><p>更轻量化，不仅适用于桌面端，更适合移动端</p>
+</li>
+<li><p>包含一些封装好的Widgets，其他框架则没有</p>
+</li>
 </ul>
-<p>如果你的电脑已经具备了上面的两个条件，那么你只需要用<code>npm</code>来安装Hexo就可以了：</p>
-<blockquote>
-<p>$ npm install -g hexo</p>
-</blockquote>
-<p>如果没有，请按照下面的说明来安装需求：</p>
-<h2 id="安装Git">安装Git</h2>
-<ul>
-<li>Windows: 下载安装 <a href="http://code.google.com/p/msysgit/" target="_blank" rel="external">msysgit</a>.</li>
-<li>Mac: 通过 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">Homebrew</a>, <a href="http://www.macports.org/" target="_blank" rel="external">MacPorts</a> 或 <a href="http://code.google.com/p/git-osx-installer/" target="_blank" rel="external">installer</a> 来安装.</li>
-<li>Linux (Ubuntu, Debian): <code>sudo apt-get install git-core</code></li>
-<li>Linux (Fedora, Red Hat, CentOS): <code>sudo yum install git-core</code></li>
-</ul>
-<h2 id="安装Node-js">安装Node.js</h2>
-<p>你可以根据自己的系统在<a href="http://nodejs.org/" target="_blank" rel="external">这里</a>下载安装。</p>
-<h2 id="安装Hexo">安装Hexo</h2>
-<p>当你具备了上面的条件后，就可以通过<code>npm</code>来安装Hexo了：</p>
-<blockquote>
-<p>$ npm install -g hexo</p>
-</blockquote>
-<h2 id="创建Hexo项目">创建Hexo项目</h2>
-<p>按照上面的方法安装完以后，就可以开始建立自己的Hexo博客了，首先我们可以新建一个目录，然后在该目录下执行以下命令：</p>
-<blockquote>
-<p>$ hexo init</p>
-</blockquote>
-<p>Hexo会自动在这个目录下建立需要的文件夹和文件。</p>
-<p>你也可以通过这样的方式来建立你的目录：</p>
-<blockquote>
-<p>$ hexo init folder</p>
-</blockquote>
-<p>在初始化目录之后，我们需要在该目录下安装依赖包：</p>
-<blockquote>
-<p>$ npm install</p>
-</blockquote>
-<p>全部完成之后，你的目录看起来是这样的结构：</p>
-<p><img src="/img/850F81DA-D7F2-4DCF-8C0C-C1D530DDF86B.png" alt=""></p>
-<h2 id="本地预览">本地预览</h2>
-<p>现在我们已经在本地安装好Hexo了，在我们刚刚建立的Hexo目录下执行下面的命令来生成你的静态页面和资源文件:</p>
-<blockquote>
-<p>$ hexo g</p>
-</blockquote>
-<p>然后继续运行：</p>
-<blockquote>
-<p>$ hexo s</p>
-</blockquote>
-<p>现在我们打开浏览器，输入<code>localhost:4000</code>访问，就能够看到你的页面了。</p>
-<h2 id="部署到GitHub">部署到GitHub</h2>
-<p>关于<a href="https://github.com" target="_blank" rel="external">GitHub</a>的注册，很简单，这里就不做介绍了。<br>登录你的GitHub账户，在主页的右下角点击<code>New Repository</code>,然后填写你的github帐号为前缀的地址比如<code>ijiaober.github.io</code></p>
-<p>编辑你的Hexo目录下的<code>_config.yml</code>文件（替换成你自己的信息）：</p>
-<blockquote>
-<p>deploy:<br>  type: github<br>  repository: <a href="https://github.com/ijiaober/ijiaober.github.io.git" target="_blank" rel="external">https://github.com/ijiaober/ijiaober.github.io.git</a><br>  branch: master</p>
-</blockquote>
-<p>保存后依次执行下面命令重新生成文件完成部署：</p>
-<blockquote>
-<p>$ hexo g<br>$ hexo d</p>
-</blockquote>
-<p>OK! 我们已经完成了部署，可以通过<code>goonx.github.io</code>来访问你的页面了！<br>（刚刚部署后马上访问可能会出现404错误，不用担心，大约十分钟左右后就可以访问了。）</p>
+<a id="more"></a>
+
+<h2 id="功能简介">功能简介</h2>
+<p><strong>为移动而生</strong></p>
+<p>Amaze UI 遵循 “移动优先（Mobile First）”、“渐进增强（Progressive enhancement）”的理念，可先从移动设备开始开发网站，逐步在扩展的更大屏幕的设备上，专注于最重要的内容和交互，适应移动互联潮流。轻松创建跨屏适配的网页。</p>
+<p>Amaze UI使用了Zepto.js库，Zepto.js的体积不到jQuery的1/3，对移动端的性能很大提升。</p>
+<p><strong>组件丰富，模块化</strong></p>
+<p>Amaze UI使用LESS编写样式，结构良好，易扩展，易维护；使用Seajs模块化开发、组织 JavaScript，自然、优雅。</p>
+<p>Amaze UI 含近 20 个 CSS 组件、10 个 JS 组件，更有 17 款包含近 60 个主题的 Web 组件，可快速构建界面出色、体验优秀的跨屏页面，大幅度提升你的开发效率。</p>
+<p><strong>本地化支持</strong></p>
+<p>相比国外的前端框架，Amaze UI 专注解决中文排版优化问题，根据操作系统调整字体，实现最佳中文排版效果；针对国内主流浏览器及 App 内置浏览器提供更好的兼容性支持，为你节省大量兼容性调试时间。</p>
+<p><strong>轻量级，高性能</strong></p>
+<p>Amaze UI 非常注重性能，基于轻量的 Zepto.js 开发，并使用 CSS3 来做动画交互，平滑、高效，更适合移动设备，让你的 Web 应用可以高速载入。</p>
+<h2 id="下载及使用">下载及使用</h2>
+<p>用户可以从 <a href="http://amazeui.org/getting-started" target="_blank" rel="external">Amaze UI 官网</a> 下载打包好的模板。</p>
+<p>所有文档存放在 docs/ 目录下，为方便查看演示效果，建议通过 Amaze UI 官网查看文档。</p>
 
       
     </div>
@@ -134,13 +97,13 @@
         
   
   <div class="categories">
-    <a href="/categories/hexo/">Hexo</a>
+    <a href="/categories/wow/">Wow</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/html5/">html5</a>, <a href="/tags/UI/">UI</a>, <a href="/tags/前端/">前端</a>, <a href="/tags/框架/">框架</a>
   </div>
 
         <div class="bdsharebuttonbox">
@@ -158,18 +121,10 @@
         
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/08/04/hexo-03/" title="Hexo使用攻略：（三）Hexo的配置和使用">
-  <strong><<</strong>
-  <span>
-  Hexo使用攻略：（三）Hexo的配置和使用</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/08/02/hexo-index/"  title="Hexo使用攻略：（一）Hexo简介">
- <span>Hexo使用攻略：（一）Hexo简介
+<a href="/2014/08/09/Architecture-of-Laravel/"  title="Laravel框架的体系结构">
+ <span>Laravel框架的体系结构
 </span>
  <strong>>></strong> 
 </a>
@@ -187,7 +142,7 @@
 
 <section id="comment">
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="2014/08/04/hexo-02/" data-title="Hexo使用攻略：（二）Hexo安装和部署" data-url="http://ijiaober.github.io/2014/08/04/hexo-02/"></div>
+  <div class="ds-thread" data-thread-key="2014/08/12/Amaze-UI/" data-title="中国首个开源HTML5跨屏前端框架-Amaze UI" data-url="http://ijiaober.github.io/2014/08/12/Amaze-UI/"></div>
 <!-- 多说评论框 end -->
 </section>
 
@@ -197,7 +152,7 @@
 
 <div class="bs-docs-sidenav">
   <h3 class="title">本文目录</h3>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git"><span class="toc-number">2.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Node-js"><span class="toc-number">3.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo"><span class="toc-number">4.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建Hexo项目"><span class="toc-number">5.</span> <span class="toc-text">创建Hexo项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地预览"><span class="toc-number">6.</span> <span class="toc-text">本地预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署到GitHub"><span class="toc-number">7.</span> <span class="toc-text">部署到GitHub</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#功能简介"><span class="toc-number">1.</span> <span class="toc-text">功能简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载及使用"><span class="toc-number">2.</span> <span class="toc-text">下载及使用</span></a></li></ol>
 </div>
 
 

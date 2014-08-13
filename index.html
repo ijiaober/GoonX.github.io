@@ -53,6 +53,149 @@
     <header>
       
   
+    <h1 class="title"><a href="/2014/08/12/Animatecss/">CSS动画插件：Animate.css</a></h1>
+  
+
+      
+        <div class="icon"></div>
+        <time datetime="2014-08-12T07:13:25.000Z"><a href="/2014/08/12/Animatecss/">8月 12日 2014</a></time>
+      
+    </header>
+    <div class="entry">
+      
+        <p>我们先来了解一下CSS动画相关的内容：</p>
+<p>通过 CSS3，我们能够创建动画，这可以在许多网页中取代动画图片、Flash 动画以及 JavaScript。</p>
+<h2 id="CSS3_@keyframes_规则">CSS3 @keyframes 规则</h2>
+<p>如需在 CSS3 中创建动画，你需要学习 @keyframes 规则。</p>
+<p>@keyframes 规则用于创建动画。在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果。</p>
+<p><strong>浏览器支持</strong></p>
+<p>Internet Explorer 10、Firefox 以及 Opera 支持 @keyframes 规则和 animation 属性。</p>
+<p>Chrome 和 Safari 需要前缀 -webkit-。</p>
+<p><em>注：Internet Explorer 9，以及更早的版本，不支持 @keyframe 规则或 animation 属性。</em></p>
+<h2 id="实例">实例</h2>
+<p>创建动画：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">keyframes</span> myfirst</span></div><div class="line">{</div><div class="line"><span class="tag">from</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-moz-keyframes</span> myfirst /* Firefox */</span></div><div class="line">{</div><div class="line"><span class="tag">from</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-webkit-keyframes</span> myfirst /* Safari 和 Chrome */</span></div><div class="line">{</div><div class="line"><span class="tag">from</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-o-keyframes</span> myfirst /* Opera */</span></div><div class="line">{</div><div class="line"><span class="tag">from</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>绑定实例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span></div><div class="line"><span class="rules">{</span></div><div class="line"><span class="rule"><span class="attribute">animation</span>:<span class="value"> myfirst <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation</span>:<span class="value"> myfirst <span class="number">5s</span></span></span>;	<span class="comment">/* Firefox */</span></div><div class="line"><span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value"> myfirst <span class="number">5s</span></span></span>;	<span class="comment">/* Safari 和 Chrome */</span></div><div class="line"><span class="rule"><span class="attribute">-o-animation</span>:<span class="value"> myfirst <span class="number">5s</span></span></span>;	<span class="comment">/* Opera */</span></div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p><em>注：必须定义动画的名称和时长。如果忽略时长，则动画不会允许，因为默认值是 0。</em></p>
+<p>动画是使元素从一种样式逐渐变化为另一种样式的效果。<br>您可以改变任意多的样式任意多的次数。<br>请用百分比来规定变化发生的时间，或用关键词 “from” 和 “to”，等同于 0% 和 100%。<br>0% 是动画的开始，100% 是动画的完成。<br>为了得到最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。</p>
+<p>实例<br>当动画为 25% 及 50% 时改变背景色，然后当动画 100% 完成时再次改变：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">keyframes</span> myfirst</span></div><div class="line">{</div><div class="line">0%   <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line">25%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">50%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;<span class="rule">}</span></span></div><div class="line">100% <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> green</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-moz-keyframes</span> myfirst /* Firefox */</span></div><div class="line">{</div><div class="line">0%   <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line">25%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">50%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;<span class="rule">}</span></span></div><div class="line">100% <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> green</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-webkit-keyframes</span> myfirst /* Safari 和 Chrome */</span></div><div class="line">{</div><div class="line">0%   <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line">25%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">50%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;<span class="rule">}</span></span></div><div class="line">100% <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> green</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-o-keyframes</span> myfirst /* Opera */</span></div><div class="line">{</div><div class="line">0%   <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line">25%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">50%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;<span class="rule">}</span></span></div><div class="line">100% <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> green</span></span>;<span class="rule">}</span></span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="CSS3_动画属性">CSS3 动画属性</h2>
+<p>下面的表格列出了 @keyframes 规则和所有动画属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@keyframes</td>
+<td>规定动画。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation</td>
+<td>所有动画属性的简写属性，除了 animation-play-state 属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-name</td>
+<td>规定 @keyframes 动画的名称。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-duration</td>
+<td>规定动画完成一个周期所花费的秒或毫秒。默认是 0。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-timing-function</td>
+<td>规定动画的速度曲线。默认是 “ease”。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-delay</td>
+<td>规定动画何时开始。默认是 0。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-iteration-count</td>
+<td>规定动画被播放的次数。默认是 1。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-direction</td>
+<td>规定动画是否在下一周期逆向地播放。默认是 “normal”。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-play-state</td>
+<td>规定动画是否正在运行或暂停。默认是 “running”。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-fill-mode</td>
+<td>规定对象动画时间之外的状态。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>下面的两个例子设置了所有动画属性：</p>
+<p>实例</p>
+<p>运行名为 myfirst 的动画，其中设置了所有动画属性：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span></div><div class="line"><span class="rules">{</span></div><div class="line"><span class="rule"><span class="attribute">animation-name</span>:<span class="value"> myfirst</span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-duration</span>:<span class="value"> <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-timing-function</span>:<span class="value"> linear</span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-direction</span>:<span class="value"> alternate</span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-play-state</span>:<span class="value"> running</span></span>;</div><div class="line"><span class="comment">/* Firefox: */</span></div><div class="line"><span class="rule"><span class="attribute">-moz-animation-name</span>:<span class="value"> myfirst</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-duration</span>:<span class="value"> <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-timing-function</span>:<span class="value"> linear</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-direction</span>:<span class="value"> alternate</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-play-state</span>:<span class="value"> running</span></span>;</div><div class="line"><span class="comment">/* Safari 和 Chrome: */</span></div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-name</span>:<span class="value"> myfirst</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-duration</span>:<span class="value"> <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-timing-function</span>:<span class="value"> linear</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-direction</span>:<span class="value"> alternate</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-play-state</span>:<span class="value"> running</span></span>;</div><div class="line"><span class="comment">/* Opera: */</span></div><div class="line"><span class="rule"><span class="attribute">-o-animation-name</span>:<span class="value"> myfirst</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-duration</span>:<span class="value"> <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-timing-function</span>:<span class="value"> linear</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-direction</span>:<span class="value"> alternate</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-play-state</span>:<span class="value"> running</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>与上面的动画相同，但是使用了简写的动画 animation 属性：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span></div><div class="line"><span class="rules">{</span></div><div class="line"><span class="rule"><span class="attribute">animation</span>:<span class="value"> myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate</span></span>;</div><div class="line"><span class="comment">/* Firefox: */</span></div><div class="line"><span class="rule"><span class="attribute">-moz-animation</span>:<span class="value"> myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate</span></span>;</div><div class="line"><span class="comment">/* Safari 和 Chrome: */</span></div><div class="line"><span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value"> myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate</span></span>;</div><div class="line"><span class="comment">/* Opera: */</span></div><div class="line"><span class="rule"><span class="attribute">-o-animation</span>:<span class="value"> myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<h2 id="Animate-css">Animate.css</h2>
+<p>在了解了CSS动画的设置方式以后，就可以按照自己的想法在网页里安排各种动态效果了。</p>
+<p>这里我们介绍一个写好的CSS动画插件：</p>
+<p><a href="http://daneden.github.io/animate.css/" target="_blank" rel="external">Animate.css</a></p>
+<h3 id="使用">使用</h3>
+<p>在你页面的<code>&lt;head&gt;</code>里引用<code>animate.css</code>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"animate.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>你可以结合JQuery给你的动画元素添加<code>animate.css</code>里的动画样式或者你自己写的CSS规则：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">'#yourElement'</span>).addClass(<span class="string">'animated bounceOutLeft'</span>);</div></pre></td></tr></table></figure>
+
+<p>你也可以检测一个动画结束时：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#yourElement'</span>).one(<span class="string">'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'</span>, <span class="keyword">do</span>Something);</div></pre></td></tr></table></figure>
+
+<p>你可以改变你的动画的持续时间,增加延迟或改变它的次数:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="id">#yourElement</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">-vendor-animation-duration</span>:<span class="value"> <span class="number">3s</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-vendor-animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-vendor-animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>注意考虑不同浏览器适用的前缀(webkit, moz, etc)。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+        
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+  
     <h1 class="title"><a href="/2014/08/12/CSS-Diner/">快速掌握CSS选择器</a></h1>
   
 
@@ -431,61 +574,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-  
-    <h1 class="title"><a href="/2014/08/05/hexo-06/">Hexo使用攻略：（六）Hexo主题安装</a></h1>
-  
-
-      
-        <div class="icon"></div>
-        <time datetime="2014-08-05T07:45:39.000Z"><a href="/2014/08/05/hexo-06/">8月 5日 2014</a></time>
-      
-    </header>
-    <div class="entry">
-      
-        <p>嘿，我们搭建好了Hexo,设置好了导航菜单和分类，写了一些文章并且同步到GitHub上了，可我们不满足，我们想要页面看起来更好看一些。</p>
-<p>我们可以通过安装主题的方式来快速选择喜欢的样式！</p>
-<ol>
-<li><p>打开Hexo的<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">Themes</a>;</p>
-</li>
-<li><p>找到你心仪的主题并且点击主题名称进入详细页面；</p>
-</li>
-<li><p>找到<code>install</code>这一项，复制下面的内容，比如Light主题的安装内容为：</p>
-<blockquote>
-<p>git clone <a href="https://github.com/hexojs/hexo-theme-light.git" target="_blank" rel="external">https://github.com/hexojs/hexo-theme-light.git</a> themes/light</p>
-</blockquote>
-</li>
-<li><p>在Hexo目录下运行上面复制的内容，就会自动下载该主题到你的Themes目录。</p>
-</li>
-<li><p>下载完毕后，在站点配置文件<code>_config.yml</code>里设置对应的主题名称：</p>
-<blockquote>
-<p>theme: light</p>
-</blockquote>
-</li>
-<li>根据自己的需要，配置主题的配置文件<code>_config.yml</code>;</li>
-</ol>
-<p>OK，我们成功的安装了一个主题。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-        
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -516,6 +604,8 @@
   
     <li><a href="/categories/wow/">Wow</a><small>4</small></li>
   
+    <li><a href="/categories/wow/">wow</a><small>1</small></li>
+  
     <li><a href="/categories/horizon/">视界</a><small>1</small></li>
   
   </ul>
@@ -526,7 +616,7 @@
 <div class="widget tagcloud">
   <h3 class="title">标签</h3>
   <div class="entry">
-    <a href="/tags/RSS/" style="font-size: 10.00px;">RSS</a><a href="/tags/UI/" style="font-size: 10.00px;">UI</a><a href="/tags/css/" style="font-size: 10.00px;">css</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/laravel/" style="font-size: 10.00px;">laravel</a><a href="/tags/one-page-scroll/" style="font-size: 10.00px;">one page scroll</a><a href="/tags/ppt/" style="font-size: 10.00px;">ppt</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/分享/" style="font-size: 10.00px;">分享</a><a href="/tags/分类/" style="font-size: 10.00px;">分类</a><a href="/tags/前端/" style="font-size: 10.00px;">前端</a><a href="/tags/单页面/" style="font-size: 10.00px;">单页面</a><a href="/tags/友情链接/" style="font-size: 10.00px;">友情链接</a><a href="/tags/导航/" style="font-size: 10.00px;">导航</a><a href="/tags/排序/" style="font-size: 10.00px;">排序</a><a href="/tags/收藏图标/" style="font-size: 10.00px;">收藏图标</a><a href="/tags/标签/" style="font-size: 10.00px;">标签</a><a href="/tags/框架/" style="font-size: 15.00px;">框架</a><a href="/tags/百度/" style="font-size: 10.00px;">百度</a><a href="/tags/算法/" style="font-size: 10.00px;">算法</a><a href="/tags/结构/" style="font-size: 10.00px;">结构</a><a href="/tags/统计/" style="font-size: 10.00px;">统计</a><a href="/tags/菜单/" style="font-size: 10.00px;">菜单</a><a href="/tags/评论/" style="font-size: 10.00px;">评论</a>
+    <a href="/tags/RSS/" style="font-size: 10.00px;">RSS</a><a href="/tags/UI/" style="font-size: 10.00px;">UI</a><a href="/tags/css/" style="font-size: 15.00px;">css</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/laravel/" style="font-size: 10.00px;">laravel</a><a href="/tags/one-page-scroll/" style="font-size: 10.00px;">one page scroll</a><a href="/tags/ppt/" style="font-size: 10.00px;">ppt</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/分享/" style="font-size: 10.00px;">分享</a><a href="/tags/分类/" style="font-size: 10.00px;">分类</a><a href="/tags/前端/" style="font-size: 10.00px;">前端</a><a href="/tags/动画/" style="font-size: 10.00px;">动画</a><a href="/tags/单页面/" style="font-size: 10.00px;">单页面</a><a href="/tags/友情链接/" style="font-size: 10.00px;">友情链接</a><a href="/tags/导航/" style="font-size: 10.00px;">导航</a><a href="/tags/排序/" style="font-size: 10.00px;">排序</a><a href="/tags/收藏图标/" style="font-size: 10.00px;">收藏图标</a><a href="/tags/标签/" style="font-size: 10.00px;">标签</a><a href="/tags/框架/" style="font-size: 15.00px;">框架</a><a href="/tags/百度/" style="font-size: 10.00px;">百度</a><a href="/tags/算法/" style="font-size: 10.00px;">算法</a><a href="/tags/结构/" style="font-size: 10.00px;">结构</a><a href="/tags/统计/" style="font-size: 10.00px;">统计</a><a href="/tags/菜单/" style="font-size: 10.00px;">菜单</a><a href="/tags/评论/" style="font-size: 10.00px;">评论</a>
   </div>
 </div>
 

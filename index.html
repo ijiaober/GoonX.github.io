@@ -72,112 +72,15 @@
 <p>Internet Explorer 10、Firefox 以及 Opera 支持 @keyframes 规则和 animation 属性。</p>
 <p>Chrome 和 Safari 需要前缀 -webkit-。</p>
 <p><em>注：Internet Explorer 9，以及更早的版本，不支持 @keyframe 规则或 animation 属性。</em></p>
-<h2 id="实例">实例</h2>
-<p>创建动画：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">keyframes</span> myfirst</span></div><div class="line">{</div><div class="line"><span class="tag">from</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-moz-keyframes</span> myfirst /* Firefox */</span></div><div class="line">{</div><div class="line"><span class="tag">from</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-webkit-keyframes</span> myfirst /* Safari 和 Chrome */</span></div><div class="line">{</div><div class="line"><span class="tag">from</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-o-keyframes</span> myfirst /* Opera */</span></div><div class="line">{</div><div class="line"><span class="tag">from</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line"><span class="tag">to</span> <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>绑定实例：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span></div><div class="line"><span class="rules">{</span></div><div class="line"><span class="rule"><span class="attribute">animation</span>:<span class="value"> myfirst <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation</span>:<span class="value"> myfirst <span class="number">5s</span></span></span>;	<span class="comment">/* Firefox */</span></div><div class="line"><span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value"> myfirst <span class="number">5s</span></span></span>;	<span class="comment">/* Safari 和 Chrome */</span></div><div class="line"><span class="rule"><span class="attribute">-o-animation</span>:<span class="value"> myfirst <span class="number">5s</span></span></span>;	<span class="comment">/* Opera */</span></div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p><em>注：必须定义动画的名称和时长。如果忽略时长，则动画不会允许，因为默认值是 0。</em></p>
-<p>动画是使元素从一种样式逐渐变化为另一种样式的效果。<br>您可以改变任意多的样式任意多的次数。<br>请用百分比来规定变化发生的时间，或用关键词 “from” 和 “to”，等同于 0% 和 100%。<br>0% 是动画的开始，100% 是动画的完成。<br>为了得到最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。</p>
-<p>实例<br>当动画为 25% 及 50% 时改变背景色，然后当动画 100% 完成时再次改变：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">keyframes</span> myfirst</span></div><div class="line">{</div><div class="line">0%   <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line">25%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">50%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;<span class="rule">}</span></span></div><div class="line">100% <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> green</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-moz-keyframes</span> myfirst /* Firefox */</span></div><div class="line">{</div><div class="line">0%   <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line">25%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">50%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;<span class="rule">}</span></span></div><div class="line">100% <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> green</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-webkit-keyframes</span> myfirst /* Safari 和 Chrome */</span></div><div class="line">{</div><div class="line">0%   <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line">25%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">50%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;<span class="rule">}</span></span></div><div class="line">100% <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> green</span></span>;<span class="rule">}</span></span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="at_rule">@<span class="keyword">-o-keyframes</span> myfirst /* Opera */</span></div><div class="line">{</div><div class="line">0%   <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> red</span></span>;<span class="rule">}</span></span></div><div class="line">25%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;<span class="rule">}</span></span></div><div class="line">50%  <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> blue</span></span>;<span class="rule">}</span></span></div><div class="line">100% <span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"> green</span></span>;<span class="rule">}</span></span></div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="CSS3_动画属性">CSS3 动画属性</h2>
-<p>下面的表格列出了 @keyframes 规则和所有动画属性：</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-<th>CSS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>@keyframes</td>
-<td>规定动画。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation</td>
-<td>所有动画属性的简写属性，除了 animation-play-state 属性。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation-name</td>
-<td>规定 @keyframes 动画的名称。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation-duration</td>
-<td>规定动画完成一个周期所花费的秒或毫秒。默认是 0。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation-timing-function</td>
-<td>规定动画的速度曲线。默认是 “ease”。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation-delay</td>
-<td>规定动画何时开始。默认是 0。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation-iteration-count</td>
-<td>规定动画被播放的次数。默认是 1。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation-direction</td>
-<td>规定动画是否在下一周期逆向地播放。默认是 “normal”。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation-play-state</td>
-<td>规定动画是否正在运行或暂停。默认是 “running”。</td>
-<td>3</td>
-</tr>
-<tr>
-<td>animation-fill-mode</td>
-<td>规定对象动画时间之外的状态。</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-<p>下面的两个例子设置了所有动画属性：</p>
-<p>实例</p>
-<p>运行名为 myfirst 的动画，其中设置了所有动画属性：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span></div><div class="line"><span class="rules">{</span></div><div class="line"><span class="rule"><span class="attribute">animation-name</span>:<span class="value"> myfirst</span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-duration</span>:<span class="value"> <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-timing-function</span>:<span class="value"> linear</span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-direction</span>:<span class="value"> alternate</span></span>;</div><div class="line"><span class="rule"><span class="attribute">animation-play-state</span>:<span class="value"> running</span></span>;</div><div class="line"><span class="comment">/* Firefox: */</span></div><div class="line"><span class="rule"><span class="attribute">-moz-animation-name</span>:<span class="value"> myfirst</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-duration</span>:<span class="value"> <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-timing-function</span>:<span class="value"> linear</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-direction</span>:<span class="value"> alternate</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-moz-animation-play-state</span>:<span class="value"> running</span></span>;</div><div class="line"><span class="comment">/* Safari 和 Chrome: */</span></div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-name</span>:<span class="value"> myfirst</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-duration</span>:<span class="value"> <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-timing-function</span>:<span class="value"> linear</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-direction</span>:<span class="value"> alternate</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-webkit-animation-play-state</span>:<span class="value"> running</span></span>;</div><div class="line"><span class="comment">/* Opera: */</span></div><div class="line"><span class="rule"><span class="attribute">-o-animation-name</span>:<span class="value"> myfirst</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-duration</span>:<span class="value"> <span class="number">5s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-timing-function</span>:<span class="value"> linear</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-direction</span>:<span class="value"> alternate</span></span>;</div><div class="line"><span class="rule"><span class="attribute">-o-animation-play-state</span>:<span class="value"> running</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p>与上面的动画相同，但是使用了简写的动画 animation 属性：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">div</span></div><div class="line"><span class="rules">{</span></div><div class="line"><span class="rule"><span class="attribute">animation</span>:<span class="value"> myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate</span></span>;</div><div class="line"><span class="comment">/* Firefox: */</span></div><div class="line"><span class="rule"><span class="attribute">-moz-animation</span>:<span class="value"> myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate</span></span>;</div><div class="line"><span class="comment">/* Safari 和 Chrome: */</span></div><div class="line"><span class="rule"><span class="attribute">-webkit-animation</span>:<span class="value"> myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate</span></span>;</div><div class="line"><span class="comment">/* Opera: */</span></div><div class="line"><span class="rule"><span class="attribute">-o-animation</span>:<span class="value"> myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<h2 id="Animate-css">Animate.css</h2>
-<p>在了解了CSS动画的设置方式以后，就可以按照自己的想法在网页里安排各种动态效果了。</p>
-<p>这里我们介绍一个写好的CSS动画插件：</p>
-<p><a href="http://daneden.github.io/animate.css/" target="_blank" rel="external">Animate.css</a></p>
-<h3 id="使用">使用</h3>
-<p>在你页面的<code>&lt;head&gt;</code>里引用<code>animate.css</code>。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"animate.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div></pre></td></tr></table></figure>
-
-<p>你可以结合JQuery给你的动画元素添加<code>animate.css</code>里的动画样式或者你自己写的CSS规则：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">'#yourElement'</span>).addClass(<span class="string">'animated bounceOutLeft'</span>);</div></pre></td></tr></table></figure>
-
-<p>你也可以检测一个动画结束时：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#yourElement'</span>).one(<span class="string">'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'</span>, <span class="keyword">do</span>Something);</div></pre></td></tr></table></figure>
-
-<p>你可以改变你的动画的持续时间,增加延迟或改变它的次数:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="id">#yourElement</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">-vendor-animation-duration</span>:<span class="value"> <span class="number">3s</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-vendor-animation-delay</span>:<span class="value"> <span class="number">2s</span></span></span>;</div><div class="line">  <span class="rule"><span class="attribute">-vendor-animation-iteration-count</span>:<span class="value"> infinite</span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
-
-<p>注意考虑不同浏览器适用的前缀(webkit, moz, etc)。</p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2014/08/12/Animatecss/#more" class="more-link">Read More</a>
+          </div>
         
         
       

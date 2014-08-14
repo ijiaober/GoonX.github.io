@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>什么是RESTful架构 | { GoonX }</title>
+  <meta name="author" content="ijiaober">
+  
+  <meta name="description" content="GoonX - 我走的很慢，但我从不后退。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="什么是RESTful架构"/>
+  <meta property="og:site_name" content="GoonX"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="GoonX" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">{ GoonX }</a></h1>
+  <h2><a href="/">我走的很慢，但我从不后退。</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/atom.xml">Rss</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+  
+    <h1 class="title">什么是RESTful架构</h1>
+  
+
+      
+        <div class="icon"></div>
+        <time datetime="2014-08-13T02:16:45.000Z"><a href="/2014/08/13/RESTful/">8月 13日 2014</a></time>
+      
+    </header>
+    <div class="entry">
+      
+        <blockquote>
+<p>本文引用自<a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="external">阮一峰的网络日志</a>,感谢作者的分享。</p>
+</blockquote>
+<p>越来越多的人开始意识到，网站即软件，而且是一种新型的软件。</p>
+<p>这种”互联网软件”采用客户端/服务器模式，建立在分布式体系上，通过互联网通信，具有高延时（high latency）、高并发等特点。</p>
+<p>网站开发，完全可以采用软件开发的模式。但是传统上，软件和网络是两个不同的领域，很少有交集；软件开发主要针对单机环境，网络则主要研究系统之间的通信。互联网的兴起，使得这两个领域开始融合，现在我们必须考虑，如何开发在互联网环境中使用的软件。</p>
+<p><strong>RESTful</strong>架构，就是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，所以正得到越来越多网站的采用。</p>
+<p>但是，到底什么是RESTful架构，并不是一个容易说清楚的问题。下面，我就谈谈我理解的RESTful架构。</p>
+<a id="more"></a>
+
+<h2 id="一、起源">一、起源</h2>
+<p>REST这个词，是Roy Thomas Fielding在他2000年的博士论文中提出的。</p>
+<p>Fielding是一个非常重要的人，他是HTTP协议（1.0版和1.1版）的主要设计者、Apache服务器软件的作者之一、Apache基金会的第一任主席。所以，他的这篇论文一经发表，就引起了关注，并且立即对互联网开发产生了深远的影响。</p>
+<p>他这样介绍论文的写作目的：</p>
+<blockquote>
+<p>“本文研究计算机科学两大前沿——软件和网络——的交叉点。长期以来，软件研究主要关注软件设计的分类、设计方法的演化，很少客观地评估不同的设计选择对系统行为的影响。而相反地，网络研究主要关注系统之间通信行为的细节、如何改进特定通信机制的表现，常常忽视了一个事实，那就是改变应用程序的互动风格比改变互动协议，对整体表现有更大的影响。我这篇文章的写作目的，就是想在符合架构原理的前提下，理解和评估以网络为基础的应用软件的架构设计，得到一个功能强、性能好、适宜通信的架构。”<br>(This dissertation explores a junction on the frontiers of two research disciplines in computer science: software and networking. Software research has long been concerned with the categorization of software designs and the development of design methodologies, but has rarely been able to objectively evaluate the impact of various design choices on system behavior. Networking research, in contrast, is focused on the details of generic communication behavior between systems and improving the performance of particular communication techniques, often ignoring the fact that changing the interaction style of an application can have more impact on performance than the communication protocols used for that interaction. My work is motivated by the desire to understand and evaluate the architectural design of network-based application software through principled use of architectural constraints, thereby obtaining the functional, performance, and social properties desired of an architecture. )</p>
+</blockquote>
+<h2 id="二、名称">二、名称</h2>
+<p>Fielding将他对互联网软件的架构原则，定名为<strong>REST</strong>，即<strong>Representational State Transfer</strong>的缩写。我对这个词组的翻译是”表现层状态转化”。</p>
+<p>如果一个架构符合<strong>REST原则</strong>，就称它为<strong>RESTful</strong>架构。</p>
+<p>要理解<strong>RESTful</strong>架构，最好的方法就是去理解<strong>Representational State Transfer</strong>这个词组到底是什么意思，它的每一个词代表了什么涵义。如果你把这个名称搞懂了，也就不难体会REST是一种什么样的设计。</p>
+<h2 id="三、资源（Resources）">三、资源（Resources）</h2>
+<p><strong>REST</strong>的名称”表现层状态转化”中，省略了主语。”表现层”其实指的是”资源”（Resources）的”表现层”。</p>
+<p>所谓”资源”，就是网络上的一个实体，或者说是网络上的一个具体信息。它可以是一段文本、一张图片、一首歌曲、一种服务，总之就是一个具体的实在。你可以用一个URI（统一资源定位符）指向它，每种资源对应一个特定的URI。要获取这个资源，访问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。</p>
+<p>所谓”上网”，就是与互联网上一系列的”资源”互动，调用它的URI。</p>
+<h2 id="四、表现层（Representation）">四、表现层（Representation）</h2>
+<p>“资源”是一种信息实体，它可以有多种外在表现形式。我们把”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。</p>
+<p>比如，文本可以用txt格式表现，也可以用HTML格式、XML格式、JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。</p>
+<p><strong>URI</strong>只代表资源的实体，不代表它的形式。严格地说，有些网址最后的”.html”后缀名是不必要的，因为这个后缀名表示格式，属于”表现层”范畴，而<strong>URI</strong>应该只代表”资源”的位置。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p>
+<h2 id="五、状态转化（State_Transfer）">五、状态转化（State Transfer）</h2>
+<p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。</p>
+<p>互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（<strong>State Transfer</strong>）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。</p>
+<p>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</p>
+<h2 id="六、综述">六、综述</h2>
+<p>综合上面的解释，我们总结一下什么是<strong>RESTful</strong>架构：</p>
+<ol>
+<li><p>每一个URI代表一种资源；</p>
+</li>
+<li><p>客户端和服务器之间，传递这种资源的某种表现层；</p>
+</li>
+<li><p>客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”。</p>
+</li>
+</ol>
+<h2 id="七、误区">七、误区</h2>
+<p><strong>RESTful</strong>架构有一些典型的设计误区。</p>
+<p>最常见的一种设计错误，就是<strong>URI</strong>包含动词。因为”资源”表示一种实体，所以应该是名词，URI不应该有动词，动词应该放在HTTP协议中。</p>
+<p>举例来说，某个URI是/posts/show/1，其中show是动词，这个URI就设计错了，正确的写法应该是/posts/1，然后用GET方法表示show。</p>
+<p>如果某些动作是HTTP动词表示不了的，你就应该把动作做成一种资源。比如网上汇款，从账户1向账户2汇款500元，错误的URI是：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　POST <span class="regexp">/accounts/</span><span class="number">1</span><span class="regexp">/transfer/</span><span class="number">500</span><span class="regexp">/to/</span><span class="number">2</span></div></pre></td></tr></table></figure>
+
+<p>正确的写法是把动词transfer改成名词transaction，资源不能是动词，但是可以是一种服务：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　POST /transaction HTTP/<span class="number">1.1</span></div><div class="line">　　Host: <span class="number">127.0</span>.<span class="number">0.1</span></div><div class="line">　　</div><div class="line">　　<span class="variable">from=</span><span class="number">1</span>&<span class="variable">to=</span><span class="number">2</span>&<span class="variable">amount=</span><span class="number">500.00</span></div></pre></td></tr></table></figure>
+
+<p>另一个设计误区，就是在URI中加入版本号：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　<span class="symbol">http:</span>/<span class="regexp">/www.example.com/app</span><span class="regexp">/1.0/foo</span></div><div class="line">　　<span class="symbol">http:</span>/<span class="regexp">/www.example.com/app</span><span class="regexp">/1.1/foo</span></div><div class="line">　　<span class="symbol">http:</span>/<span class="regexp">/www.example.com/app</span><span class="regexp">/2.0/foo</span></div></pre></td></tr></table></figure>
+
+<p>因为不同的版本，可以理解成同一种资源的不同表现形式，所以应该采用同一个URI。版本号可以在HTTP请求头信息的Accept字段中进行区分（参见<a href="http://www.informit.com/articles/article.aspx?p=1566460" target="_blank" rel="external">Versioning REST Services</a>）：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　Accep<span class="variable">t:</span> vnd.example-<span class="keyword">com</span>.foo+json; <span class="keyword">version</span>=<span class="number">1.0</span></div><div class="line">　　Accep<span class="variable">t:</span> vnd.example-<span class="keyword">com</span>.foo+json; <span class="keyword">version</span>=<span class="number">1.1</span></div><div class="line">　　Accep<span class="variable">t:</span> vnd.example-<span class="keyword">com</span>.foo+json; <span class="keyword">version</span>=<span class="number">2.0</span></div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/wow/">Wow</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/RESTful/">RESTful</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+  <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+  <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+  <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+  <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+  <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+  <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+  <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+  <a href="#" class="bds_ibaidu" data-cmd="ibaidu" title="分享到百度个人中心"></a>
+  <a href="#" class="bds_more" data-cmd="more"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/08/13/laravel/laravel-lang/" title="laravel的语言包设置">
+  <strong><<</strong>
+  <span>
+  laravel的语言包设置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/08/12/Animatecss/"  title="CSS动画插件：Animate.css">
+ <span>CSS动画插件：Animate.css
+</span>
+ <strong>>></strong> 
+</a>
+</div>
+
+</nav>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+        
+</article>
+
+
+<section id="comment">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2014/08/13/RESTful/" data-title="什么是RESTful架构" data-url="http://ijiaober.github.io/2014/08/13/RESTful/"></div>
+<!-- 多说评论框 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+
+
+<div class="bs-docs-sidenav">
+  <h3 class="title">本文目录</h3>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、起源"><span class="toc-number">1.</span> <span class="toc-text">一、起源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、名称"><span class="toc-number">2.</span> <span class="toc-text">二、名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、资源（Resources）"><span class="toc-number">3.</span> <span class="toc-text">三、资源（Resources）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、表现层（Representation）"><span class="toc-number">4.</span> <span class="toc-text">四、表现层（Representation）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、状态转化（State_Transfer）"><span class="toc-number">5.</span> <span class="toc-text">五、状态转化（State Transfer）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、综述"><span class="toc-number">6.</span> <span class="toc-text">六、综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、误区"><span class="toc-number">7.</span> <span class="toc-text">七、误区</span></a></li></ol>
+</div>
+
+
+
+  <div class="search">
+  <form action="//baidu.com/baidu" method="get" accept-charset="utf-8">
+    <input type="search" name="word" results="0" placeholder="搜索">
+    <input type="hidden" name="si" value="ijiaober.github.io">
+    <input name=tn type=hidden value="bds">
+	<input name=cl type=hidden value="3">
+	<input name=ct type=hidden value="2097152">
+	<input name=s type=hidden value="on">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hexo/">Hexo</a><small>10</small></li>
+  
+    <li><a href="/categories/wow/">Wow</a><small>7</small></li>
+  
+    <li><a href="/categories/horizon/">视界</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签</h3>
+  <div class="entry">
+    <a href="/tags/RESTful/" style="font-size: 10.00px;">RESTful</a><a href="/tags/RSS/" style="font-size: 10.00px;">RSS</a><a href="/tags/UI/" style="font-size: 10.00px;">UI</a><a href="/tags/css/" style="font-size: 15.00px;">css</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5/" style="font-size: 10.00px;">html5</a><a href="/tags/laravel/" style="font-size: 15.00px;">laravel</a><a href="/tags/one-page-scroll/" style="font-size: 10.00px;">one page scroll</a><a href="/tags/ppt/" style="font-size: 10.00px;">ppt</a><a href="/tags/主题/" style="font-size: 10.00px;">主题</a><a href="/tags/分享/" style="font-size: 10.00px;">分享</a><a href="/tags/分类/" style="font-size: 10.00px;">分类</a><a href="/tags/前端/" style="font-size: 10.00px;">前端</a><a href="/tags/动画/" style="font-size: 10.00px;">动画</a><a href="/tags/单页面/" style="font-size: 10.00px;">单页面</a><a href="/tags/友情链接/" style="font-size: 10.00px;">友情链接</a><a href="/tags/导航/" style="font-size: 10.00px;">导航</a><a href="/tags/排序/" style="font-size: 10.00px;">排序</a><a href="/tags/收藏图标/" style="font-size: 10.00px;">收藏图标</a><a href="/tags/标签/" style="font-size: 10.00px;">标签</a><a href="/tags/框架/" style="font-size: 15.00px;">框架</a><a href="/tags/百度/" style="font-size: 10.00px;">百度</a><a href="/tags/算法/" style="font-size: 10.00px;">算法</a><a href="/tags/结构/" style="font-size: 10.00px;">结构</a><a href="/tags/统计/" style="font-size: 10.00px;">统计</a><a href="/tags/菜单/" style="font-size: 10.00px;">菜单</a><a href="/tags/评论/" style="font-size: 10.00px;">评论</a><a href="/tags/语言包/" style="font-size: 10.00px;">语言包</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 ijiaober
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"phonein"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+<script src="/js/stickUp.min.js"></script>
+<script type="text/javascript">
+              //initiating jQuery
+              jQuery(function($) {
+                $(document).ready( function() {
+                  //enabling stickUp on the '.bs-docs-sidenav' class
+                  $('.bs-docs-sidenav').stickUp();
+                });
+              });
+
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+  
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F9420f91cad981c89586ddc3d24a5b4e3' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</body>
+</html>

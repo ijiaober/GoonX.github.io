@@ -4,7 +4,7 @@
   <subtitle><![CDATA[我走的很慢，但我从不后退。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://ijiaober.github.io/"/>
-  <updated>2014-08-15T14:18:05.937Z</updated>
+  <updated>2014-08-21T05:53:56.042Z</updated>
   <id>http://ijiaober.github.io/</id>
   
   <author>
@@ -13,6 +13,134 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Javascript构建工具：Grunt、Gulp、NPM]]></title>
+    <link href="http://ijiaober.github.io/2014/08/16/Grunt-vs-Gulp-vs-NPM/"/>
+    <id>http://ijiaober.github.io/2014/08/16/Grunt-vs-Gulp-vs-NPM/</id>
+    <published>2014-08-16T03:23:35.000Z</published>
+    <updated>2014-08-21T05:53:37.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>Nicolas Bevacqua专心研究了JavaScript构建系统，他比较了三大工具：Grunt、Gulp、NPM，讨论了各自的优点和缺点。</p>
+</blockquote>
+<p>原文地址<a href="http://modernweb.com/2014/08/04/choose-grunt-gulp-npm/?utm_source=javascriptweekly&amp;utm_medium=email" target="_blank" rel="external">A JavaScript Build System Shootout: Grunt vs. Gulp vs. NPM</a></p>
+<p>决定技术总是困难的，因为你不想反复选择。但最终你将不得不做出选择来满足你需要它做的事情。对于构建技术在这方面没有什么不同:它是一个重要的选择,你应该慎重对待它。例如让我们来看看Grunt：</p>
+<ul>
+<li><p>Grunt有一个健康的社区,甚至是在Windows上。</p>
+</li>
+<li><p>它不完全使用在Node社区</p>
+</li>
+<li><p>很容易学习,你只是安装插件然后配置它们</p>
+</li>
+<li><p>没有先进的概念,也不需要大量的经验知识</p>
+</li>
+</ul>
+<p>这些都是选择使用Grunt很好的理由,但是我想弄清楚,Grunt是不是最好的选择,而且还有其他流行的构建工具,是否比Grunt更满足你的需要。</p>
+<p>我写这篇短文,可以帮助你理解Grunt、Gulp和npm之间的差异。这是我在前端开发工作流程中最常使用的三个构建工具。当我们理解它们以后,定制一个工具的时候可能会更得心应手。</p>
+<p>第一步，我们来讨论Grunt擅长的地方。</p>
+<h2 id="Grunt的特点">Grunt的特点</h2>
+<p>Grunt的最好的方面是它的易用性。它使程序员在开发使用JavaScript构建流程中几乎毫不费力。你只需要寻找适当的插件,阅读它的文档,然后安装和配置它。这种易用性意味着在大型开发团队中，即便成员们不同的技能水平,也可以没有任何麻烦的调整构建项目的流程来满足最新的需求。团队不需要流畅使用Node,他们只需要添加属性来配置对象，并形成了不同任务名称的构造流程。</p>
+<p>有一个足够完善的插件库，你会发现很少需要开发自己的构建任务，这使你和你的团队能够快速投入到开发一个构建过程中，如果你使用<a href="http://bevacqua.io/buildfirst" target="_blank" rel="external">Build First</a>的方式来构建你的Javascript应用，这是很重要的。</p>
+<p>也可以通过Grunt管理部署，有许多依赖包提供这样的任务，例如<code>grunt-git</code>,<code>grunt-rsync</code>或<code>grunt-ec2</code>等。</p>
+<p>Grunt的不足在哪里?如果你有一个很大的构建流程,它可能过于冗长。一旦任务数在构建流到达两位数,几乎可以肯定,你会发现自己不得不运行相同的任务,这样你才能够组成正确顺序的流程。由于任务配置以声明的方式,你也很难弄清楚任务的执行顺序。</p>
+<p>除此之外,你的团队应该编写可维护的代码,在Grunt下,这意味着每个任务的配置或者至少为每个构建流程维护单独的文件。</p>
+<p>既然我们已经了解了Grunt的好与坏的方面,这可能已经是一个适合你项目的工具,让我们继续npm,看看如何利用它作为一个构建工具,及其与Grunt的差异。</p>
+<h2 id="npm构建工具">npm构建工具</h2>
+<p>使用npm，你需要安装npm，然后建立一个<code>package.json</code>文件。在npm里定义任务一样很容易，你只需要在你的’package.json’里添加属性。属性的名称将被用作任务名称，值为你想要执行的命令。下面所示的示例使用JSHint命令行界面运行我们的JavaScript文件和检查错误。你可以运行任何你需要的命令。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  "<span class="attribute">scripts</span>": <span class="value">{</span></div><div class="line">    "<span class="attribute">test</span>": <span class="value"><span class="string">"jshint . --exclude node_modules"</span></span></div><div class="line">  },</div><div class="line">  "<span class="attribute">devDependencies</span>": <span class="value">{</span></div><div class="line">    "<span class="attribute">jshint</span>": <span class="value"><span class="string">"^2.5.1"</span></span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>一旦定义了任务,你通过运行以下命令执行命令行。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run <span class="keyword">test</span></div></pre></td></tr></table></figure>
+
+<p>注意,npm为特定任务名称提供了捷径。在<code>test</code>这个例子里,你可以简单的输入’npm test’而省略掉’run’来运行。您可以通过在脚本声明里定义’npm run’命令。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  "<span class="attribute">scripts</span>": <span class="value">{</span></div><div class="line">    "<span class="attribute">lint</span>": <span class="value"><span class="string">"jshint . --exclude node_modules"</span></span>,</div><div class="line">    "<span class="attribute">unit</span>": <span class="value"><span class="string">"tape test/*"</span></span>,</div><div class="line">    "<span class="attribute">test</span>": <span class="value"><span class="string">"npm run lint && npm run unit"</span></span></div><div class="line">  },</div><div class="line">  "<span class="attribute">devDependencies</span>": <span class="value">{</span></div><div class="line">    "<span class="attribute">jshint</span>": <span class="value"><span class="string">"^2.5.1"</span></span>,</div><div class="line">    "<span class="attribute">tape</span>": <span class="value"><span class="string">"~2.10.2"</span></span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>你也可以安排任务作为背景,使他们可以是异步的。假设我们有以下package文件,我们设置<code>build-js</code>为复制一个目录构建流程,<code>build-css</code>编译一个Stylus在我们的CSS样式构建流(Stylus是一个CSS预处理器)。在这种情况下,可以使用<code>&amp;</code>分隔符和命令来实现异步处理。例如下面的<code>build</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  "<span class="attribute">scripts</span>": <span class="value">{</span></div><div class="line">    "<span class="attribute">build-js</span>": <span class="value"><span class="string">"cp -r src/js/vendor bin/js"</span></span>,</div><div class="line">    "<span class="attribute">build-css</span>": <span class="value"><span class="string">"stylus src/css/all.styl -o bin/css"</span></span>,</div><div class="line">    "<span class="attribute">build</span>": <span class="value"><span class="string">"npm run build-js & npm run build-css"</span></span></div><div class="line">  },</div><div class="line">  "<span class="attribute">devDependencies</span>": <span class="value">{</span></div><div class="line">    "<span class="attribute">stylus</span>": <span class="value"><span class="string">"^0.45.0"</span></span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>更多地了解npm,你应该试着学习如何编写Bash命令。</p>
+<h3 id="安装npm依赖">安装npm依赖</h3>
+<p>你的系统中不一定有JSHint CLI,有两种方法可以去安装它。如果你想从你的命令行工具里直接使用,而不是在一个npm运行任务中,那么你应该使用g全局安装,如下所示：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> -g jshint</span></div></pre></td></tr></table></figure>
+
+<p>如果你使用的是封装在一个npm的任务，那么你应该将它作为一个<code>devdependency</code>，如下所示。这将允许npm找到jshint的依赖包，适用于任何命令行工具。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> <span class="comment">--save-dev jshint</span></span></div></pre></td></tr></table></figure>
+
+<p>你不限于只使用命令行工具。事实上，NPM能够运行任何脚本。让我们深入探讨！</p>
+<h3 id="在npm任务中使用脚本">在npm任务中使用脚本</h3>
+<p>下面是一个在Node上运行的脚本，显示了随机的emoji字符串。第一行告诉我们这个脚本的运行环境是Node。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!<span class="regexp">/usr/</span>bin/env node</div><div class="line"></div><div class="line"><span class="keyword">var</span> emoji = <span class="built_in">require</span>(<span class="string">'emoji-random'</span>);</div><div class="line"><span class="keyword">var</span> emo = emoji.random();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(emo);</div></pre></td></tr></table></figure>
+
+<p>如果你想将脚本放置到名为<code>emoji</code>的文件中，并将这个文件置于项目的根目录下，你需要将<code>emoji-random</code>声明成一个依赖，并向<code>package</code>清单中的<code>scripts</code>对象中添加命令。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  "<span class="attribute">scripts</span>": <span class="value">{</span></div><div class="line">    "<span class="attribute">emoji</span>": <span class="value"><span class="string">"./emoji"</span></span></div><div class="line">  },</div><div class="line">  "<span class="attribute">devDependencies</span>": <span class="value">{</span></div><div class="line">    "<span class="attribute">emoji-random</span>": <span class="value"><span class="string">"^0.1.2"</span></span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>一旦搞定这些，运行命令不过是在你的终端里调用<code>npm run emoji</code>而已。</p>
+<h3 id="优点和缺点">优点和缺点</h3>
+<p>把npm当作构建工具比使用Grunt要多一些优势。你不必拘泥于Grunt的各种插件，可以利用拥有数万的npm包。除了npm你甚至不需要安装任何多余的CLI工具或文件，就可以管理你的依赖和罗列了所有依赖和构建命令的<code>package.json</code>清单。由于npm运行CLI工具和Bash命令更直接，它会比Grunt表现的更好。</p>
+<p>需要考虑到Grunt的最大的缺点之一，便是它的I/O限制。这意味着大多数的Grunt任务是从硬盘读取的，然后在写入到硬盘。如果你有几个任务共同使用一个文件，那么这个文件有可能会从硬盘多次读取。在Bash中，命令会连接成一个管道，一个命令输出接着下一个，这样就避免了像Grunt那样的额外I/O开销。</p>
+<p>或许npm最大的缺点是Bash命令行在Windows系统环境中无法得到很好的支持。这意味着在Windows系统中把玩使用npm run的开源项目运行起来的项目可能会出各种「小意外」。同样，这也意味着使用Windows的开发者需要尝试使用npm的替代品。这一缺点几乎排除了在Windows中使用<code>npm</code>。</p>
+<h2 id="Gulp，一个流构建工具">Gulp，一个流构建工具</h2>
+<p>Gulp，另一个构建工具，表现的跟Grunt和npm相似，接下来你会了解到它。</p>
+<p>Gulp和Grunt相似，它们都依赖各种各样的插件，并且Gulp是跨平台的，同样支持Windows用户。Gulp是一个代码驱动型的构建工具，相比于Grunt的用声明的方式来给任务定义，Gulp会让你的任务定义更容易阅读。Gulp也跟npm run很相似，她们都使用Node数据流来读取文件，并且通过函数来传递数据，将其转换为输出，在输出结束后将数据写入硬盘。这就使得Gulp没有Grunt那样对硬盘频繁进行I/O操作的缺点。正因消耗更少的I/O操作时间，Gulp才会比Grunt速度快。</p>
+<p>Gulp最主要的缺点在于它严重依赖流，管道和异步代码。别误会我：如果你使用Node，那这些都是它的优点。但这些观念的问题是除非你和你的团队精通Node，否则你将会陷入处理「流」的问题中，特别是如果你不得不构建自己的Gulp任务插件时。</p>
+<p>在团队协作时，Gulp并不禁止使用npm，因为大多前端团队成员都懂得JavaScript，但也有可能他们并不能流畅的使用Bash脚本，甚至有些人使用的是Windows系统。这就是为什么我通常建议在你自己的项目中保持使用npm run，在对Node熟悉的团队项目中使用Gulp，其它情况下都可以使用Grunt。当然了，这只是我的个人建议，你应该自己想清楚哪一个最适合你的你的团队。还有，你也不要把你自己局限于Grunt，gulp或者npm run，它们仅仅是为我所用的工具。尝试去做一点调查研究，或许你就能发现一个你觉得比这三个都好用的工具。</p>
+<p>让我们瞅一些案例，感受一下Gulp任务看起来是个什么东东。</p>
+<h3 id="用Gulp运行测试">用Gulp运行测试</h3>
+<p>Gulp有着和Grunt及其相似的约定。在Grunt中使用<code>Gruntfile.js</code>文件来定义你的构建任务，在Gulp中需要把这个文件命名为<code>Gulpfile.js</code>。其它的小区别是当任务运行时，Gulp的CLI包含在相同的包内，所以你将不得不通过npm在本地和全局都安装上gulp包。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">touch Gulpfile.js</div><div class="line">npm <span class="operator"><span class="keyword">install</span> -g gulp</span></div><div class="line">mpm <span class="keyword">install</span> <span class="comment">--save-dev gulp</span></div></pre></td></tr></table></figure>
+
+<p>一开始，我会创建一个Gulp任务：使用JSHint检查一个JavaScript文件，就像你在Grunt和npm run中已经看到的一样。你需要为JSHint安装gulp-jshint插件。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> <span class="comment">--save-dev gulp-jshint</span></span></div></pre></td></tr></table></figure>
+
+<p>现在你已经用CLI完全装备好了，全局安装，本地的<code>gulp</code>安装和<code>gulp-jshint</code>插件，你可以将构建任务汇集到一起来运行检查器。用<code>Gulp</code>定义构建任务，你必须将它们写入<code>Gulpfile.js</code>文件中。</p>
+<p>首先你需要使用<code>gulp.task</code>，并给它传递一个任务名称和函数。这个函数包含运行任务所必须的代码。这里你应该用<code>gulp.src</code>来创建一个读入流到你的源文件中，像我们在学习<code>Grunt</code>中一样使用一个全局配置。相同的流应该引导至JSHint插件，在这里你可以自行配置或者使用默认配置。之后你所需做的是通过指示器链接JSHint的结果，然后将结果输出到你的终端。所有我所描述的结果都基于下面呈现的Gulpfile。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">'gulp-jshint'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> gulp</div><div class="line">    .src(<span class="string">'./sample.js'</span>)</div><div class="line">    .pipe(jshint())</div><div class="line">    .pipe(jshint.reporter(<span class="string">'default'</span>));</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>我还应该提到我正在返回数据流，使得Gulp能明白在任务完成之前，它应该等待数据停止流动。为了能让输出更容易被人类阅读，你应该使用默认的JSHint指示器。JSHint指示器不需要作为Gulp插件，因此你可以使用<code>jshint-sytlish</code>为例。让我们安装它到本地。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> <span class="comment">--save-dev jshint-stylish</span></span></div></pre></td></tr></table></figure>
+
+<p>更新后的<code>Gulpfile</code>应该如下所示。它将会读取<code>jshint-stylish</code>模式来格式化指令的输出。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">'gulp-jshint'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> gulp</div><div class="line">    .src(<span class="string">'./sample.js'</span>)</div><div class="line">    .pipe(jshint())</div><div class="line">    .pipe(jshint.reporter(<span class="string">'jshint-stylish'</span>));</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>你做到了！！这就是名为test的Gulp任务所有的声明。用下面的命令使之运行，确保你全局安装了gulpCLI。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp <span class="keyword">test</span></div></pre></td></tr></table></figure>
+
+<p>这只是一个简单的小案例。就像你通过可以打印检验结果的指示器输出JSHint检验的结果，你甚至可以用<code>gulp.dest</code>将输出写入硬盘。接下来我们探寻另一个构建任务。</p>
+<h3 id="在Gulp中构建一个库">在Gulp中构建一个库</h3>
+<p>在一开始，我们来设定一下最低限度：使用<code>gulp.src</code>从硬盘读取并切通过用管道传输<code>gulp.dest</code>中源文件的内容来写回到硬盘，有效的见文件复制到其它目录中。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> gulp</div><div class="line">    .src(<span class="string">'./sample.js'</span>)</div><div class="line">    .pipe(gulp.dest(<span class="string">'./build'</span>));</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>复制文件挺不错的，但是它并不能是文件内容最小化。为了达到这个效果，你还需要使用一个<code>Gulp</code>插件。这种情况下可以用<code>gulp-uglify</code>，一个流行的UglifyJs压缩插件。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> gulp</div><div class="line">    .src(<span class="string">'./sample.js'</span>)</div><div class="line">    .pipe(uglify())</div><div class="line">    .pipe(gulp.dest(<span class="string">'./build'</span>));</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>如你所料，流操作使得你可以添加一堆插件，但是却只需要对硬盘实行一次读写操作。作为一个例子：我们可以使用<code>gulp-size</code>(它能够计算出缓存区内容的大小，并且输出到终端)。注意，如果你把它添加在Uglify之前，你会得到原始大小，而添加到Uglify之后，则会得到压缩后的大小。你也可以在前后都添加。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line"><span class="keyword">var</span> size = <span class="built_in">require</span>(<span class="string">'gulp-size'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> gulp</div><div class="line">    .src(<span class="string">'./sample.js'</span>)</div><div class="line">    .pipe(uglify())</div><div class="line">    .pipe(size())</div><div class="line">    .pipe(gulp.dest(<span class="string">'./build'</span>));</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>为了加强可组合型，能够按需添加和移除pipe，我们最后需要添加一个插件。这一次，我将使用<code>gulp-header</code>来向压缩的代码片段中添加一些许可信息，例如名称，包的版本号，和许可的类型。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line"><span class="keyword">var</span> size = <span class="built_in">require</span>(<span class="string">'gulp-size'</span>);</div><div class="line"><span class="keyword">var</span> header = <span class="built_in">require</span>(<span class="string">'gulp-header'</span>);</div><div class="line"><span class="keyword">var</span> pkg = <span class="built_in">require</span>(<span class="string">'./package.json'</span>);</div><div class="line"><span class="keyword">var</span> info = <span class="string">'// &lt;%= pkg.name %&gt;@v&lt;%= pkg.version %&gt;, &lt;%= pkg.license %&gt;\n'</span>;</div><div class="line"></div><div class="line">gulp.task(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> gulp</div><div class="line">    .src(<span class="string">'./sample.js'</span>)</div><div class="line">    .pipe(uglify())</div><div class="line">    .pipe(header(info, { pkg : pkg }))</div><div class="line">    .pipe(size())</div><div class="line">    .pipe(gulp.dest(<span class="string">'./build'</span>));</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>就像在<code>Grunt</code>中一样，在<code>Gulp</code>中你可以通过向<code>gulp.task</code>中传递名称数组来定义流程。而不是通过函数。<code>Grunt</code>和<code>Gulp</code>最主要的区别是<code>Gulp</code>会异步执行这些依赖，而<code>Grunt</code>是同步执行的。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp.<span class="keyword">task</span>(<span class="string">'build'</span>,[<span class="string">'builid-js'</span>,<span class="string">'build-css'</span>]);</div></pre></td></tr></table></figure>
+
+<p>在<code>Gulp</code>中，如果你想同步运行任务，你不得不将任务作为依赖来声明，然后定义你自己的任务。所有依赖会在你的任务开始之前执行。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'build'</span>, [<span class="string">'dep'</span>], <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">  <span class="comment">// here goes the task that depends on 'dep'</span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>如果你能从本文中有所收获，那么请记下下面的话：</p>
+<blockquote>
+<p>你用什么工具并不重要，关键在于它能够让你编译构建流程的工作更轻松。</p>
+</blockquote>
+]]></content>
+    
+    
+      <category term="grunt" scheme="http://ijiaober.github.io/tags/grunt/"/>
+    
+      <category term="gulp" scheme="http://ijiaober.github.io/tags/gulp/"/>
+    
+      <category term="npm" scheme="http://ijiaober.github.io/tags/npm/"/>
+    
+      <category term="Wow" scheme="http://ijiaober.github.io/categories/wow/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[旅行，写作，编程]]></title>
@@ -1265,86 +1393,6 @@
 <h2 id="基本配置">基本配置</h2>
 <p>在Hexo中，有两个配置文件，一个是用来配置整站信息的，位于项目更目录下的<code>_config.yml</code>文件。另外一个是对主题的配置，位于<code>themes</code>目录下你所采用的主题目录里，文件名同样是<code>_config.yml</code>。</p>
 <p>首先，我们来看第一个配置文件，整站信息配置：<br>]]></summary>
-    
-      <category term="hexo" scheme="http://ijiaober.github.io/tags/hexo/"/>
-    
-      <category term="Hexo" scheme="http://ijiaober.github.io/categories/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hexo使用攻略：（二）Hexo安装和部署]]></title>
-    <link href="http://ijiaober.github.io/2014/08/04/hexo/hexo-02/"/>
-    <id>http://ijiaober.github.io/2014/08/04/hexo/hexo-02/</id>
-    <published>2014-08-04T03:14:48.000Z</published>
-    <updated>2014-08-05T05:46:30.000Z</updated>
-    <content type="html"><![CDATA[<p>欢迎阅读<strong>Hexo使用攻略</strong>系列文档，本文档将尽量用简短的文字带领大家快速的上手Hexo。<br>在使用Hexo过程中，如果遇到任何问题，可以查阅官方的<a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Troubleshooting</a>或者直接去<a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>提问。</p>
-<p></p><p class="bg-warning">注意：本系列文章针对的Hexo版本为：2.8.1。其他版本请自行调试。</p><br><a id="more"></a><p></p>
-<h2 id="安装">安装</h2>
-<p>安装Hexo非常简单，但是在安装之前，你需要具备以下条件：</p>
-<ul>
-<li><a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
-<li><a href="http://git-scm.com/" target="_blank" rel="external">Git</a></li>
-</ul>
-<p>如果你的电脑已经具备了上面的两个条件，那么你只需要用<code>npm</code>来安装Hexo就可以了：</p>
-<blockquote>
-<p>$ npm install -g hexo</p>
-</blockquote>
-<p>如果没有，请按照下面的说明来安装需求：</p>
-<h2 id="安装Git">安装Git</h2>
-<ul>
-<li>Windows: 下载安装 <a href="http://code.google.com/p/msysgit/" target="_blank" rel="external">msysgit</a>.</li>
-<li>Mac: 通过 <a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">Homebrew</a>, <a href="http://www.macports.org/" target="_blank" rel="external">MacPorts</a> 或 <a href="http://code.google.com/p/git-osx-installer/" target="_blank" rel="external">installer</a> 来安装.</li>
-<li>Linux (Ubuntu, Debian): <code>sudo apt-get install git-core</code></li>
-<li>Linux (Fedora, Red Hat, CentOS): <code>sudo yum install git-core</code></li>
-</ul>
-<h2 id="安装Node-js">安装Node.js</h2>
-<p>你可以根据自己的系统在<a href="http://nodejs.org/" target="_blank" rel="external">这里</a>下载安装。</p>
-<h2 id="安装Hexo">安装Hexo</h2>
-<p>当你具备了上面的条件后，就可以通过<code>npm</code>来安装Hexo了：</p>
-<blockquote>
-<p>$ npm install -g hexo</p>
-</blockquote>
-<h2 id="创建Hexo项目">创建Hexo项目</h2>
-<p>按照上面的方法安装完以后，就可以开始建立自己的Hexo博客了，首先我们可以新建一个目录，然后在该目录下执行以下命令：</p>
-<blockquote>
-<p>$ hexo init</p>
-</blockquote>
-<p>Hexo会自动在这个目录下建立需要的文件夹和文件。</p>
-<p>你也可以通过这样的方式来建立你的目录：</p>
-<blockquote>
-<p>$ hexo init folder</p>
-</blockquote>
-<p>在初始化目录之后，我们需要在该目录下安装依赖包：</p>
-<blockquote>
-<p>$ npm install</p>
-</blockquote>
-<p>全部完成之后，你的目录看起来是这样的结构：</p>
-<p><img src="/img/850F81DA-D7F2-4DCF-8C0C-C1D530DDF86B.png" alt=""></p>
-<h2 id="本地预览">本地预览</h2>
-<p>现在我们已经在本地安装好Hexo了，在我们刚刚建立的Hexo目录下执行下面的命令来生成你的静态页面和资源文件:</p>
-<blockquote>
-<p>$ hexo g</p>
-</blockquote>
-<p>然后继续运行：</p>
-<blockquote>
-<p>$ hexo s</p>
-</blockquote>
-<p>现在我们打开浏览器，输入<code>localhost:4000</code>访问，就能够看到你的页面了。</p>
-<h2 id="部署到GitHub">部署到GitHub</h2>
-<p>关于<a href="https://github.com" target="_blank" rel="external">GitHub</a>的注册，很简单，这里就不做介绍了。<br>登录你的GitHub账户，在主页的右下角点击<code>New Repository</code>,然后填写你的github帐号为前缀的地址比如<code>ijiaober.github.io</code></p>
-<p>编辑你的Hexo目录下的<code>_config.yml</code>文件（替换成你自己的信息）：</p>
-<blockquote>
-<p>deploy:<br>  type: github<br>  repository: <a href="https://github.com/ijiaober/ijiaober.github.io.git" target="_blank" rel="external">https://github.com/ijiaober/ijiaober.github.io.git</a><br>  branch: master</p>
-</blockquote>
-<p>保存后依次执行下面命令重新生成文件完成部署：</p>
-<blockquote>
-<p>$ hexo g<br>$ hexo d</p>
-</blockquote>
-<p>OK! 我们已经完成了部署，可以通过<code>goonx.github.io</code>来访问你的页面了！<br>（刚刚部署后马上访问可能会出现404错误，不用担心，大约十分钟左右后就可以访问了。）</p>
-]]></content>
-    <summary type="html"><![CDATA[<p>欢迎阅读<strong>Hexo使用攻略</strong>系列文档，本文档将尽量用简短的文字带领大家快速的上手Hexo。<br>在使用Hexo过程中，如果遇到任何问题，可以查阅官方的<a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Troubleshooting</a>或者直接去<a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>提问。</p>
-<p></p><p class="bg-warning">注意：本系列文章针对的Hexo版本为：2.8.1。其他版本请自行调试。</p><br>]]></summary>
     
       <category term="hexo" scheme="http://ijiaober.github.io/tags/hexo/"/>
     
